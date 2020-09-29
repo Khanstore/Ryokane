@@ -166,7 +166,7 @@ class SalesClass(models.Model):
                             value_found = True
                             # Working on Case 3.
                             lines_to_remove -= line
-                            lines_to_remove += update_line(order, line, value, program)
+                            lines_to_remove += update_line(order, line, value)
                             continue
                     # Case 2.
                     if not value_found:
