@@ -1,0 +1,41 @@
+<?xml version="1.0" ?>
+<odoo>
+    <data>
+        <template id="website_slides_local_video.slide_detail_view_inherit" name="Slide Detailed View" inherit_id="website_slides.slide_detail_view">
+             <xpath expr="//h4[@t-field='slide.name']" position="replace">
+                <t t-if="slide.datas and slide.slide_type == 'infographic'">
+                    <h4 t-field="slide.name" class="col-lg-5"/> <a t-attf-href="{{slide.external_link}}" target="_blank"><i class="fa fa-external-link btn btn-secondary o_external_button"></i></a>
+                </t>
+                <t t-else="">
+                    <h4 t-field="slide.name" class="col-lg-6"/>
+                </t>
+            </xpath>
+             <xpath expr="//div[hasclass('embed-responsive-4by3')]" position="after">
+                <div t-if="slide.slide_type == 'video' and slide.local_url" class="embed-responsive embed-responsive-16by9 embed-responsive-item mb8">
+                    <t t-set="download_option" t-value="''"/>
+                    <t t-if="slide.download_security == 'none'">
+                        <t t-set="download_option" t-value="'nodownload'"/>
+                    </t>
+                    <t t-elif="slide.download_security == 'user' and request.env.user._is_public()">
+                        <t t-set="download_option" t-value="'nodownload'"/>
+                    </t>
+
+                    <div id="container">
+                      <video
+                        controls="controls"
+                        crossorigin='crossorigin'
+                        playsinline='playsinline'
+                        t-attf-controlsList="{{download_option}}"
+                        id="player"
+                      >
+                        <source
+                          t-attf-src="{{slide.embed_code_src}}"
+                          t-attf-type="{{slide.local_url.mimetype}}"
+                        />
+                      </video>
+                    </div>
+                </div>
+            </xpath>
+        </template>
+    </data>
+</odoo>
