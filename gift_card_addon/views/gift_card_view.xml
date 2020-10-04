@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="aspl_gift_card_form_inh">
+            <field name="name">aspl.gift.card.view.form</field>
+            <field name="model">aspl.gift.card</field>
+            <field name="inherit_id" ref="aspl_gift_card.aspl_gift_card_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='expire_date']" position="before">
+                    <field name='check_expiry_access' invisible="1"/>
+                </xpath>
+                <xpath expr="//field[@name='expire_date']" position="replace">
+                    <field name="expire_date" attrs="{'readonly': [('check_expiry_access', '=', False)]}"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
