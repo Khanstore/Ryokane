@@ -1,6 +1,16 @@
 <?xml version="1.0" ?>
 <odoo>
     <data>
+        <template id="slides_grid_view_inh" inherit_id="website_slides.slides_grid_view">
+            <xpath expr="//p" position="replace">
+                <p t-if="slide.tag_ids" style="padding-top: 5px;">
+                    <t t-foreach="slide.tag_ids" t-as="att_tag">
+                        <a t-attf-href="/slides/#{slug(channel)}/tag/#{slug(att_tag)}" t-attf-class="badge badge-secondary #{tag and tag.name == att_tag.name and 'badge-primary' ''}" t-field="att_tag.name" style="border: 1px solid #ff9643 !important;color: #ff9643 !important;font-size: 11px !important;"/>
+                    </t>
+                </p>
+            </xpath>
+        </template>
+
         <template id="website_slides_local_video.slide_detail_view_inherit" name="Slide Detailed View" inherit_id="website_slides.slide_detail_view">
             <xpath expr="//div[@t-if='slide.tag_ids']" position="replace">
                 <div class="col-lg-8" t-if="slide.tag_ids">
@@ -10,8 +20,8 @@
                 </div>
             </xpath>
              <xpath expr="//h4[@t-field='slide.name']" position="replace">
-                <t t-if="slide.datas and slide.slide_type == 'infographic'">
-                    <h4 t-field="slide.name" class="col-lg-5"/> <a t-attf-href="{{slide.external_link}}" target="_blank"><i class="fa fa-external-link btn btn-secondary o_external_button"></i></a>
+                <t t-if="slide.datas and slide.external_link">
+                    <h4 t-field="slide.name" class="col-lg-4"/> <a t-attf-href="{{slide.external_link}}" target="_blank"><u>External Link</u></a>
                 </t>
                 <t t-else="">
                     <h4 t-field="slide.name" class="col-lg-6"/>
