@@ -7,7 +7,7 @@
     'category': 'Manufacturing',
     'maintainer': 'Craftsync Technologies',
    
-    'summary': """Cancel manufacturings Order app is helpful plugin to cancel processed manufacturing order. Cancellation of manufacturing order includes operations like cancel Invoice, Cancel Delivery Order, Cancel paid Invoice, Unreconcile Payment, Cancel processed delivery order/ cancel processed picking.""",
+    'summary': """Cancellation of manufacturing order includes operations like cancel Invoice, Cancel Delivery Order, Cancel paid Invoice, Unreconcile Payment, Cancel processed delivery order/ cancel processed picking.""",
 
     'website': 'https://www.craftsync.com/',
     'license': 'OPL-1',

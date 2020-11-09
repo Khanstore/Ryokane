@@ -1,35 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-
-    <template id="language_image_flag" inherit_id="website.layout" name="Language Flag" active="False" customize_show="True">
-        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
-            <li class="divider" t-ignore="true"/>
-            <li class="dropdown o_lang_flag" t-ignore="true">
-                <a href="#" class="nav-link dropdown-toggle js_lang" data-toggle="dropdown" aria-expanded="true">
-                    <t t-foreach="website.language_ids" t-as="lg">
-                        <t t-if="lg.code == request.lang">
-                            <img class="img o_flag_icon mr4" t-attf-src="/website/image/res.lang/{{lg.id}}/flag_image"
-                                 height="15" width="20" t-att-title="lg.name"/>
-                            <t t-esc="lg.name.split('/').pop()"/>
-                            <span class="caret"/>
-                        </t>
-                    </t>
-                </a>
-                <ul class="dropdown-menu" role="menu">
-                    <t t-foreach="website.language_ids" t-as="lg">
-                        <li t-att-class="'selected' if lg.code == request.lang else None">
-                            <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg.code)"
-                               t-att-data-default-lang="(editable or translatable) and 'true' if website and lg.code == website.default_lang_code else None"
-                               t-att-data-lang="lg.code"
-                               class="js_change_lang js_lang dropdown-item">
-                                <img class="img o_flag_icon mr4" t-attf-src="/website/image/res.lang/{{lg.id}}/flag_image"
-                                     height="15" width="20" t-att-title="lg.name"/>
-                                <t t-esc="lg.name.split('/').pop()"/>
+    <template id="language_image_flag" name="Language Flag" inherit_id="portal.frontend_layout">
+        <xpath expr="//header/nav" position="before">
+            <div style="background-color: white;  border-bottom:1px solid #aaa !important;">
+                <ul class="mb0 list-inline" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
+                    <ul class="list-inline text-md-right ">
+                        <li class="dropdown o_lang_flag list-inline-item text-md-right" t-ignore="true">
+                            <a href="#" class="nav-link dropdown-toggle js_lang" data-toggle="dropdown" aria-expanded="true">
+                                <t t-foreach="website.language_ids" t-as="lg">
+                                    <t t-if="lg.code == request.lang">
+                                        <img class="img o_flag_icon mr4" t-attf-src="/website/image/res.lang/{{lg.id}}/flag_image"
+                                             height="15" width="20" t-att-title="lg.name"/>
+                                        <t t-esc="lg.name.split('/').pop()"/>
+                                        <span class="caret"/>
+                                    </t>
+                                </t>
+                            </a>
+                            <ul class="o_js_change_lang dropdown-menu" role="menu">
+                                <t t-foreach="website.language_ids" t-as="lg">
+                                    <li t-att-class="'selected' if lg.code == request.lang else None">
+                                        <a t-att-href="url_for(request.httprequest.path + '?' + keep_query(), lang=lg.code)"
+                                           t-att-data-default-lang="(editable or translatable) and 'true' if website and lg.code == website.default_lang_code else None"
+                                           t-att-data-lang="lg.code"
+                                           class="js_change_lang js_lang dropdown-item">
+                                            <img class="img o_flag_icon mr4" t-attf-src="/website/image/res.lang/{{lg.id}}/flag_image"
+                                                 height="15" width="20" t-att-title="lg.name"/>
+                                            <t t-esc="lg.name.split('/').pop()"/>
+                                        </a>
+                                    </li>
+                                </t>
+                            </ul>
+                        </li>
+                        <li groups="website.group_website_publisher" class="list-inline-item text-md-right">
+                            <t t-set="url_return" t-value="quote_plus(url_for('', '[lang]') + '?' + keep_query())"/>
+                            <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id if website else ''}&amp;url_return=#{url_return}"><i class="fa fa-plus-circle"/> Add a language...
                             </a>
                         </li>
-                    </t>
+                        <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
+                            <a href="/find_us_on_map"><i style="color:#ff9643; padding-right:3px" class="fa fa-map-marker"/>CLICK &amp;amp; GO SPAS PARTENAIRES</a>
+                        </li>
+                        <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
+                            <a href="/contactus"><i style="color:#ff9643; padding-right:3px" class="fa fa-comments-o"/> Contact </a>
+                        </li>
+                        <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
+                            <a href="#newsletter"><i style="color:#ff9643; padding-right:3px" class="fa fa-envelope"/> Newsletter </a>
+                        </li>
+                    </ul>
                 </ul>
-            </li>
+            </div>
+            <div class="img-container-block">
+                <span class="img-container-inline" style="padding-bottom:15px; padding-top:10px;">
+                    <a href="/" class="navbar-brand logo">
+                        <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/>
+                    </a>
+                </span>
+            </div>
         </xpath>
     </template>
 </odoo>
