@@ -29,3 +29,7 @@
     @include align-items(center);
   }
 }
+
+.o_js_change_lang.dropdown-menu {
+  min-width: auto;
+}
