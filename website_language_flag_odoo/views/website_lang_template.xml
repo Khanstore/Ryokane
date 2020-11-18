@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <template id="language_image_flag" name="Language Flag" inherit_id="portal.frontend_layout">
+        <xpath expr="//header/nav" position="attributes">
+            <attribute name="class">navbar-expand-md navbar-light bg-light navbar-primary</attribute>
+        </xpath>
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
+            <attribute name="class">navbar-brand logo d-none</attribute>
+        </xpath>
         <xpath expr="//header/nav" position="before">
-            <xpath expr="//header/nav" position="attributes">
-                <attribute name="class">navbar-expand-md navbar-light bg-light navbar-primary</attribute>
-            </xpath>
-            <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
-                <attribute name="class">navbar-brand logo d-none</attribute>
-            </xpath>
             <div style="background-color: white;  border-bottom:1px solid #aaa !important;">
                 <ul class="mb0 list-inline" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
                     <ul class="list-inline text-md-right ">
