@@ -48,7 +48,7 @@ class AcquirerSogecommerce(models.Model):
         return [(c, _(l)) for c, l in languages.items()]
 
     @api.depends('provider')
-    def _compute_multi_warning(self):
+    def _sogecommerce_compute_multi_warning(self):
         for acquirer in self:
             acquirer.sogecommerce_multi_warning = (constants.SOGECOMMERCE_PLUGIN_FEATURES.get('restrictmulti') == True) if (acquirer.provider == 'sogecommercemulti') else False
 
@@ -57,12 +57,22 @@ class AcquirerSogecommerce(models.Model):
     if constants.SOGECOMMERCE_PLUGIN_FEATURES.get('shatwo') == False:
         sign_algo_help += _('The HMAC-SHA-256 algorithm should not be activated if it is not yet available in the Sogecommerce Back Office, the feature will be available soon.')
 
+    # Compatibility with Odoo 14.
+    sogecommerce_odoo14 = True if parse_version(release.version) >= parse_version('14') else False
+
     providers = [('sogecommerce', _('Sogecommerce - Standard payment'))]
+    if sogecommerce_odoo14:
+        ondelete_policy = {'sogecommerce': 'set default'}
 
     if constants.SOGECOMMERCE_PLUGIN_FEATURES.get('multi') == True:
         providers.append(('sogecommercemulti', _('Sogecommerce - Payment in installments')))
+        if sogecommerce_odoo14:
+            ondelete_policy['sogecommercemulti'] = 'set default'
 
-    provider = fields.Selection(selection_add=providers)
+    if sogecommerce_odoo14:
+        provider = fields.Selection(selection_add=providers, ondelete = ondelete_policy)
+    else:
+        provider = fields.Selection(selection_add=providers)
 
     sogecommerce_site_id = fields.Char(string=_('Shop ID'), help=_('The identifier provided by Sogecommerce.'), default=constants.SOGECOMMERCE_PARAMS.get('SITE_ID'))
     sogecommerce_key_test = fields.Char(string=_('Key in test mode'), help=_('Key provided by Sogecommerce for test mode (available in Sogecommerce Back Office).'), default=constants.SOGECOMMERCE_PARAMS.get('KEY_TEST'), readonly=constants.SOGECOMMERCE_PLUGIN_FEATURES.get('qualif'))
@@ -82,7 +92,7 @@ class AcquirerSogecommerce(models.Model):
     sogecommerce_redirect_error_timeout = fields.Char(string=_('Redirection timeout on failure'), help=_('Time in seconds (0-300) before the buyer is automatically redirected to your website after a declined payment.'))
     sogecommerce_redirect_error_message = fields.Char(string=_('Redirection message on failure'), help=_('Message displayed on the payment page prior to redirection after a declined payment.'), default=_('Redirection to shop in a few seconds...'))
     sogecommerce_return_mode = fields.Selection(string=_('Return mode'), help=_('Method that will be used for transmitting the payment result from the payment page to your shop.'), selection=[('GET', 'GET'), ('POST', 'POST')])
-    sogecommerce_multi_warning = fields.Boolean(compute='_compute_multi_warning')
+    sogecommerce_multi_warning = fields.Boolean(compute='_sogecommerce_compute_multi_warning')
 
     sogecommerce_multi_count = fields.Char(string=_('Count'), help=_('Total number of payments.'))
     sogecommerce_multi_period = fields.Char(string=_('Period'), help=_('Delay (in days) between payments.'))
@@ -100,6 +110,8 @@ class AcquirerSogecommerce(models.Model):
     else:
         image_128 = fields.Char()
         state = fields.Char()
+
+    sogecommerce_redirect = False
 
     @api.model
     def multi_add(self, filename):
@@ -183,7 +195,7 @@ class AcquirerSogecommerce(models.Model):
         validation_mode = self.sogecommerce_validation_mode if self.sogecommerce_validation_mode != '-1' else ''
 
         # Enable redirection?
-        self.sogecommerce_redirect = True if str(self.sogecommerce_redirect_enabled) == '1' else False
+        AcquirerSogecommerce.sogecommerce_redirect = True if str(self.sogecommerce_redirect_enabled) == '1' else False
 
         tx_values = dict() # Values to sign in unicode.
         tx_values.update({
@@ -232,7 +244,7 @@ class AcquirerSogecommerce(models.Model):
             'vads_ship_to_phone_num': values.get('partner_phone') and values.get('partner_phone')[0:31] or '',
         })
 
-        if self.sogecommerce_redirect:
+        if AcquirerSogecommerce.sogecommerce_redirect:
             tx_values.update({
                 'vads_redirect_success_timeout': self.sogecommerce_redirect_success_timeout or '',
                 'vads_redirect_success_message': self.sogecommerce_redirect_success_message or '',

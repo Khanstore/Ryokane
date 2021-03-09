@@ -9,7 +9,7 @@
 
 {
     'name': 'Sogecommerce Payment Acquirer',
-    'version': '1.2.0',
+    'version': '1.2.1',
     'summary': 'Accept payments with Sogecommerce secure payment gateway.',
     'category': 'Accounting',
     'author': 'Lyra Network',

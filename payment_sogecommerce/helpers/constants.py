@@ -9,7 +9,7 @@
 
 from odoo import _
 
-# WARN: Do not modify code format here. This is managed by build files. 
+# WARN: Do not modify code format here. This is managed by build files.
 SOGECOMMERCE_PLUGIN_FEATURES = {
     'multi': True,
     'restrictmulti': True,
@@ -31,8 +31,8 @@ SOGECOMMERCE_PARAMS = {
     'LANGUAGE': 'fr',
 
     'GATEWAY_VERSION': 'V2',
-    'PLUGIN_VERSION': '1.2.0',
-    'CMS_IDENTIFIER': 'Odoo_10-13',
+    'PLUGIN_VERSION': '1.2.1',
+    'CMS_IDENTIFIER': 'Odoo_10-14',
 }
 
 SOGECOMMERCE_LANGUAGES = {
@@ -55,27 +55,35 @@ SOGECOMMERCE_CARDS = {
     'CB': u'CB',
     'E-CARTEBLEUE': u'e-Carte Bleue',
     'MAESTRO': u'Maestro',
-    'MASTERCARD': u'MasterCard',
+    'MASTERCARD': u'Mastercard',
     'VISA': u'Visa',
     'VISA_ELECTRON': u'Visa Electron',
     'VPAY': u'V PAY',
     'AMEX': u'American Express',
+    'APETIZ': u'Apetiz',
     'AURORE-MULTI': u'Cpay Aurore',
+    'CHQ_DEJ': u'Chèque Déjeuner',
+    'CONECS': u'Conecs',
+    'CVCO': u'Chèque-Vacances Connect',
+    'EDENRED': u'Ticket Restaurant',
+    'EDENRED_EC': u'Ticket EcoCheque',
+    'EDENRED_TR': u'Ticket Restaurant',
     'E_CV': u'e-Chèque-Vacances',
-    'FULLCB_3X': u'Paiement en 3x sans frais par BNPP PF',
-    'FULLCB_4X': u'Paiement en 4x sans frais par BNPP PF',
-    'ILLICADO': u'Carte Cadeau Illicado',
-    'ILLICADO_SB': u'Carte Cadeau Illicado - Sandbox',
-    'MASTERPASS': u'MasterPass',
-    'ONEY': u'FacilyPay Oney',
-    'ONEY_SANDBOX': u'FacilyPay Oney - Sandbox',
+    'FRANFINANCE_3X': u'Paiement en 3 fois',
+    'FRANFINANCE_4X': u'Paiement en 4 fois',
+    'FULLCB3X': u'Paiement en 3 fois CB',
+    'ILLICADO': u'Carte Illicado',
+    'ILLICADO_SB': u'Carte Illicado (sandbox)',
+    'JCB': u'JCB',
     'ONEY_3X_4X': u'Paiement en 3 ou 4 fois Oney',
-    'PAYPAL': u'PayPal',
-    'PAYPAL_SB': u'PayPal - Sandbox',  'PAYLIB': u'Wallet Paylib',
-    'PICWIC': u'Picwic',
-    'PICWIC_SB': u'Carte Picwic (sandbox)',
-    'SDD': u'Prélèvement SEPA Direct Debit',
     'ONEY_ENSEIGNE': u'Cartes enseignes Oney',
+    'PAYLIB': u'Paylib',
+    'PAYPAL': u'PayPal',
+    'PAYPAL_SB': u'PayPal Sandbox',
+    'PICWIC': u'Carte Picwic',
+    'PICWIC_SB': u'Carte Picwic (sandbox)',
+    'SDD': u'Prélèvement SEPA',
+    'SODEXO': u'Pass Restaurant',
 }
 
 SOGECOMMERCE_CURRENCIES = [
