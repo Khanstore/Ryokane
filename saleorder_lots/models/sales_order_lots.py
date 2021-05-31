@@ -37,8 +37,8 @@ class AccountSalesOrderLine(models.Model):
                         ))
                     else:
                         
-                            lot_strings.append('<li style="word-spacing:5px">%s %s Q :(%s) DDM :%s</li>' % (
-                        _   ('Lot'), sml.lot_id.name, sml.product_uom_qty,sml.lot_id.use_date
+                            lot_strings.append('<li style="word-spacing:5px">%s %s Q :(%s) </li>' % (
+                        _   ('Lot'), sml.lot_id.name, sml.product_uom_qty
                             ))
                     
             if lot_strings:
