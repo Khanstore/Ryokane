@@ -32,6 +32,20 @@ header .navbar-brand.logo img {
 }
 
 
+#top_menu {
+  padding: 0;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+  margin-right: 0px;
+  float: inherit;
+}
+
+.navbar .container li > .dropdown-menu {
+  margin-top: 0px !important;
+  border: none;
+}
+
 .o_lang_flag {
   ul {
     & > li {
