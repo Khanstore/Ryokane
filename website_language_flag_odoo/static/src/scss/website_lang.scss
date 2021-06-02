@@ -25,6 +25,13 @@
   background:rgb(255, 255, 255)  !important;
 }
 
+header .navbar-brand.logo img {
+  width: auto;
+  height: 3rem  !important;
+  max-width: none;
+}
+
+
 .o_lang_flag {
   ul {
     & > li {
