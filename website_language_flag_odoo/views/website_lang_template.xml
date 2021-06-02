@@ -8,7 +8,7 @@
             <attribute name="class">navbar-brand logo d-none</attribute>
         </xpath> -->
 
-        <xpath expr="//header/nav/div/div/ul/li[@id='my_cart']" position="attributes">
+        <xpath expr="//header/nav//li[@id='my_cart']" position="attributes">
             <attribute name="class">d-none</attribute>
         </xpath>
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
