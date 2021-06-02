@@ -8,9 +8,7 @@
             <attribute name="class">navbar-brand logo d-none</attribute>
         </xpath> -->
 
-        <xpath expr="//header/ul//li[@id='my_cart']" position="attributes">
-            <attribute name="class">d-none</attribute>
-        </xpath>
+        
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
             <a href="/" class="navbar-brand logo">
                 <span t-field="res_company.logo" t-options="{'widget': 'image'}" role="img" t-att-aria-label="'Logo of %s' % res_company.name" t-att-title="res_company.name" />
