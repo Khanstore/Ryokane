@@ -19,12 +19,43 @@
                     <ul class="list-inline text-md-right ">
                         
                         <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
-                        <li id="my_cart" t-attf-class=" list-inline-item text-md-right#{'' if website_sale_order and website_sale_order.cart_quantity else ' d-none'}">
-                            <a href="/shop/cart" class="nav-link dropdown effect-underline">
-                                <i class="fa fa-shopping-cart"/> Cart
-                                <sup t-attf-class="my_cart_quantity badge badge-primary " t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
-                            </a>
+                            <li id="my_cart" t-attf-class=" list-inline-item text-md-right#{'' if website_sale_order and website_sale_order.cart_quantity else ' d-none'}">
+                                <a href="/shop/cart" class="nav-link dropdown effect-underline">
+                                    <i class="fa fa-shopping-cart"/> Cart
+                                    <sup t-attf-class="my_cart_quantity badge badge-primary " t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+                                </a>
+                            </li>
+
+                        
+                        <li id="my_search" t-attf-class=" list-inline-item text-md-right">
+                            <div class="header-search">
+                                <t t-if="category">
+                                    <form t-att-action="keep('/shop'+ ('/category/'+slug(category)) if category else None, search=0)" method="get">
+
+                                        <t t-set="search_text" t-value="search"/>
+                                        <input class="form-control" name="search" placeholder="Search" t-att-value="search" type="text"/>
+                                        <button class="btn btn-default">
+                                            <i class="fa fa-search"/>
+                                            <span class="oe_search_found" />
+
+                                        </button>
+                                    </form>
+                                </t>
+                                <t t-else=''>
+                                    <form t-att-action="'/shop'" method="get">
+
+                                        <t t-set="search_text" t-value="search"/>
+                                        <input class="form-control" name="search" placeholder="Search" t-att-value="search" type="text"/>
+                                        <button class="btn btn-default">
+                                            <i class="fa fa-search"/>
+                                            <span class="oe_search_found" />
+
+                                        </button>
+                                    </form>
+                                </t>
+                            </div>
                         </li>
+
                         
                         <li class="dropdown o_lang_flag list-inline-item text-md-right" t-ignore="true">
                             <a href="#" class="nav-link dropdown-toggle js_lang" data-toggle="dropdown" aria-expanded="true">
