@@ -14,6 +14,17 @@
     align-items: $align;
 };
 
+.navbar .container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: auto;
+  right: 0;
+  height: 5px;
+  background:rgb(255, 255, 255);
+}
+
 .o_lang_flag {
   ul {
     & > li {
