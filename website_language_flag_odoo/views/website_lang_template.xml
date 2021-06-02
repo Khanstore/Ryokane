@@ -30,11 +30,11 @@
                         <li id="my_search" t-attf-class=" list-inline-item text-md-right">
                             <div class="header-search">
                                 <t t-if="category">
-                                    <form t-att-action="keep('/shop'+ ('/category/'+slug(category)) if category else None, search=0)" method="get">
+                                    <form class="form-inline" t-att-action="keep('/shop'+ ('/category/'+slug(category)) if category else None, search=0)" method="get">
 
                                         <t t-set="search_text" t-value="search"/>
                                         <input class="form-control" name="search" placeholder="Search" t-att-value="search" type="text"/>
-                                        <button class="btn btn-default">
+                                        <button id="sr_box" class="btn btn-default">
                                             <i class="fa fa-search"/>
                                             <span class="oe_search_found" />
 
@@ -42,11 +42,11 @@
                                     </form>
                                 </t>
                                 <t t-else=''>
-                                    <form t-att-action="'/shop'" method="get">
+                                    <form class="form-inline" t-att-action="'/shop'" method="get">
 
                                         <t t-set="search_text" t-value="search"/>
                                         <input class="form-control" name="search" placeholder="Search" t-att-value="search" type="text"/>
-                                        <button class="btn btn-default">
+                                        <button id="sr_box" class="btn btn-default">
                                             <i class="fa fa-search"/>
                                             <span class="oe_search_found" />
 
