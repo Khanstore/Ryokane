@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-    <template id="new_sx_header_layout" inherit_id="website.layout" name="Flag Header">
-        <xpath expr="//header//li//a[@href='/shop/cart']" position="attributes">
-                <attribute name="style">display:none</attribute>
-        </xpath>
-    </template>
     <template id="language_image_flag" name="Language Flag" inherit_id="portal.frontend_layout">
         <!-- <xpath expr="//header/nav" position="attributes">
             <attribute name="class">navbar-expand-md navbar-light bg-light navbar-primary</attribute>
@@ -12,8 +7,6 @@
         <!-- <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
             <attribute name="class">navbar-brand logo d-none</attribute>
         </xpath> -->
-
-        
 
         <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
             <a href="/" class="navbar-brand logo">
