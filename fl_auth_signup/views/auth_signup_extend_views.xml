@@ -2,20 +2,6 @@
 <odoo>
     <data>
         <template id="auth_signup_fields_extend" inherit_id="auth_signup.fields" name="Signup Fields Extend">
-            <script type="text/javascript">
-                $(document).ready(function(){
-                    $('#name').prop('readonly', true);
-                    $("#f_name").on("input", function(){
-                        $("#name").val($("#f_name").val() + " " +$("#l_name").val());
-                    });
-                    
-                    $("#l_name").on("input", function(){
-                        $("#name").val($("#f_name").val() + " " +$("#l_name").val());
-                    });
-                
-                });
-
-            </script>
             <xpath expr="//div[hasclass('field-name')]" position="replace">
                 <div class="form-group field-f_name">
 	                <label for="f_name" class="control-label">First Name</label>

@@ -16,10 +16,9 @@
     'data': [
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
+        'views/assets.xml'
     ],
-    'qweb': [],
-    'css': [],
-    'js': [],
+    
     'images': [
         'static/description/auth_signup_banner.png',
     ],
