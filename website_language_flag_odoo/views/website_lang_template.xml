@@ -29,7 +29,7 @@
                         
                         <li id="my_search" t-attf-class=" list-inline-item text-md-right">
                             <button id="sr_box" type="button" data-toggle="modal" data-target="#searchModal" class="btn btn-default">
-
+                            </button>
                             <div class="modal fade" id="searchModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
