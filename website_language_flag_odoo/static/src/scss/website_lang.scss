@@ -72,6 +72,14 @@ background:rgb(255, 255, 255);
   min-width: auto;
 }
 
+// sticky filter
+
+#o_shop_collapse_category
+{
+  position: sticky; 
+  top:0;
+}
+
 // for search box
 
 
@@ -129,10 +137,4 @@ background:rgb(255, 255, 255);
   .popup_search{
     width: 70%;
   }
-}
-.o_shop_collapse_category
-{
-
-  position: sticky; 
-  top:0;
 }
