@@ -26,9 +26,22 @@
             
         </template>
 <template id="web.login" inherit_id="web.login" name="Login" active="False" customize_show="True">
-<div class="forms_signin_signup">
-    <ul class="tab-group">
-        <li class="tab active">Log In</li>
+
+    <ul class="nav nav-tabs">
+        <li class="nav-item active">
+            <a class="nav-link active" data-toggle="tab"
+                href="#login_1">
+                Log In
+              </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" data-toggle="tab"
+                href="#signup_1" style="overflow: hidden;text-overflow: ellipsis;">
+                Signup
+              </a>
+        </li>
+    </ul>
+        <div id="login_1" class="tab-pane active">
             <t t-call="web.login_layout">
                     <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
                         <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
@@ -72,10 +85,12 @@
                     </form>
                 </t>
             </t>
-        </li>
-        <li class="tab">Sign Up
+        </div>
+
+        <div t-att-id="signup_1" class="tab-pane">
             <t t-call="auth_signup.fields"/>
-        </li>
+        </div>
+
 </template>
 
     </data>
