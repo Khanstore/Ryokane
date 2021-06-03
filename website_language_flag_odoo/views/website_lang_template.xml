@@ -34,7 +34,7 @@
                             </a>
                             <div id="popup_search1" class="overlay_search">
                                 <div class="popup_search">
-                                    <h2>Enter keyword and press Enter</h2>
+                                    <!-- <h2>Enter keywords and press Enter</h2> -->
                                     <a class="close" href="#">&amp;times</a>
                                     <div class="content">
                                         <form class="form-inline" t-att-action="'/shop'" method="get" role="search">
@@ -44,7 +44,7 @@
                                                 </div>
                                                 <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search">
                                                     <i class="fa fa-search">
-                                                    </i>
+                                                            </i>
                                                 </button>
                                         </form>
                                     </div>
