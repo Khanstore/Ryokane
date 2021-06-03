@@ -25,8 +25,6 @@
             </xpath>
             
         </template>
-    </data>
-</odoo>
 <template id="web.login" inherit_id="web.login" name="Login" active="False" customize_show="True">
 <div class="forms_signin_signup">
     <ul class="tab-group">
@@ -79,3 +77,6 @@
             <t t-call="auth_signup.fields"/>
         </li>
 </template>
+
+    </data>
+</odoo>
