@@ -34,7 +34,7 @@
                             </a>
                             <div id="popup_search1" class="overlay_search">
                                 <div class="popup_search">
-                                    <!-- <h2>Enter keywords and press Enter</h2> -->
+                                    <!-- <h2>Enter</h2> -->
                                     <a class="close" href="#">&amp;times</a>
                                     <div class="content">
                                         <form class="form-inline" t-att-action="'/shop'" method="get" role="search">
