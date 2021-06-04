@@ -31,7 +31,7 @@
 
 
         <t t-call="web.login_layout">
-                <ul class="nav nav-tabs">
+                <ul class="nav nav-tabs pdt-tabs">
                     <li class="nav-item active">
                         <a class="nav-link active" data-toggle="tab"
                             href="#login_1">
@@ -89,7 +89,7 @@
                         </form>
                 </div>
 
-                <div t-att-id="signup_1" class="tab-pane">
+                <div id="signup_1" class="tab-pane">
                     <form class="oe_signup_form" role="form" method="post" t-if="not message">
                     <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
