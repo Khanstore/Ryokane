@@ -34,13 +34,23 @@
 
                         
                         <li id="my_search" t-attf-class=" list-inline-item text-md-right">
-                            <a id="sr_box" class="btn btn-default" href="#popup_search1">
+                            <form class="form-inline" t-att-action="'/shop'" method="get" role="search">
+                                <t t-set="search_text" t-value="search"/>
+                                    <div class="form-group">
+                                        <input type="text" name="search" t-att-value="search" class="form-control" placeholder="Search"/>
+                                    </div>
+                                    <button id="sr_box" type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search">
+                                        <i class="fa fa-search">
+                                        </i>
+                                    </button>
+                            </form>
+                            <!-- <a id="sr_box" class="btn btn-default" href="#popup_search1">
                                 <i class="fa fa-search"/>
                                 <span class="oe_search_found" />
-                            </a>
-                            <div id="popup_search1" class="overlay_search">
+                            </a> -->
+                            <!-- <div id="popup_search1" class="overlay_search">
                                 <div class="popup_search">
-                                    <!-- <h2>Enter</h2> -->
+                                  
                                     <a class="close" href="#">&amp;times</a>
                                     <div class="content">
                                         <form class="form-inline" t-att-action="'/shop'" method="get" role="search">
@@ -55,7 +65,7 @@
                                         </form>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </li>
 
                         
