@@ -17,6 +17,7 @@
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
         'views/assets.xml'
+        'views/address_checkout.xml'
     ],
     
     'images': [
