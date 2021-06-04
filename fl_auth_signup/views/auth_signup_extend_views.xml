@@ -27,23 +27,25 @@
         </template>
 <template id="login" inherit_id="web.login" name="Login" customize_show="True">
     <xpath expr="t" position="replace">
-        <ul class="nav nav-tabs">
-            <li class="nav-item active">
-                <a class="nav-link active" data-toggle="tab"
-                    href="#login_1">
-                    Log In
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" data-toggle="tab"
-                    href="#signup_1" style="overflow: hidden;text-overflow: ellipsis;">
-                    Signup
-                </a>
-            </li>
-        </ul>
+        
 
-            <div id="login_1" class="tab-pane active">
-                <t t-call="web.login_layout">
+
+            <t t-call="web.login_layout">
+                        <ul class="nav nav-tabs">
+                            <li class="nav-item active">
+                                <a class="nav-link active" data-toggle="tab"
+                                    href="#login_1">
+                                    Log In
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" data-toggle="tab"
+                                    href="#signup_1" style="overflow: hidden;text-overflow: ellipsis;">
+                                    Signup
+                                </a>
+                            </li>
+                        </ul>
+                    <div id="login_1" class="tab-pane active">
                         <form class="oe_login_form" role="form" t-attf-action="/web/login{{ '?debug' if debug else '' }}" method="post" onsubmit="this.action = this.action + location.hash">
                             <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
@@ -84,12 +86,14 @@
 
                             <input type="hidden" name="redirect" t-att-value="redirect"/>
                         </form>
-                </t>
-            </div>
+                </div>
 
-            <div t-att-id="signup_1" class="tab-pane">
-                <t t-call="auth_signup.fields"/>
-            </div>
+                <div t-att-id="signup_1" class="tab-pane">
+                    <t t-call="auth_signup.signup"/>
+                </div>
+            </t>
+
+            
     </xpath>
 </template>
 
