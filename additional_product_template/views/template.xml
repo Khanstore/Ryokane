@@ -52,7 +52,7 @@
 
       <template id="horizontal_tab">
            <div class="mt16">
-            <ul class="nav nav-tabs">
+            <ul class="nav nav-tabs pdt-tabs">
               <t t-call='additional_product_template.nav_pills'/>
             </ul>
           </div>

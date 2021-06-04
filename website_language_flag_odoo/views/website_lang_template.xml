@@ -1,16 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
+    <template id="product_page_modf" name="Product Page Modification" inherit_id="website.website_search_box">
+        <xpath expr="//div[hasclass('input-group')]" position="attributes">
+            <attribute name="class">d-none</attribute>
+        </xpath> 
+    </template>
+
     <template id="language_image_flag" name="Language Flag" inherit_id="portal.frontend_layout">
-        <xpath expr="//header/nav" position="attributes">
+        <!-- <xpath expr="//header/nav" position="attributes">
             <attribute name="class">navbar-expand-md navbar-light bg-light navbar-primary</attribute>
-        </xpath>
-        <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
+        </xpath> -->
+        <!-- <xpath expr="//header//a[hasclass('navbar-brand')]" position="attributes">
             <attribute name="class">navbar-brand logo d-none</attribute>
+        </xpath> -->
+
+        <xpath expr="//header//a[hasclass('navbar-brand')]" position="replace">
+            <a href="/" class="navbar-brand logo">
+                <span t-field="res_company.logo" t-options="{'widget': 'image'}" role="img" t-att-aria-label="'Logo of %s' % res_company.name" t-att-title="res_company.name" />
+            </a>
         </xpath>
         <xpath expr="//header/nav" position="before">
             <div style="background-color: white;  border-bottom:1px solid #aaa !important;">
-                <ul class="mb0 list-inline" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
+                <ul id="top_menu" class="mb0 list-inline" style="display: block;" t-if="(request and request.is_frontend_multilang and len(languages) &gt; 1) or (website and (editable or translatable))">
                     <ul class="list-inline text-md-right ">
+                        
+                        <t t-set="website_sale_order" t-value="website.sale_get_order()"/>
+                            <li id="my_cart" t-attf-class=" list-inline-item text-md-right#{'' if website_sale_order and website_sale_order.cart_quantity else ' d-none'}">
+                                <a href="/shop/cart" class="nav-link dropdown effect-underline">
+                                    <i class="fa fa-shopping-cart"/> Cart
+                                    <sup t-attf-class="my_cart_quantity badge badge-primary " t-esc="website_sale_order and website_sale_order.cart_quantity or ''"/>
+                                </a>
+                            </li>
+
+                        
+                        <li id="my_search" t-attf-class=" list-inline-item text-md-right">
+                            <a id="sr_box" class="btn btn-default" href="#popup_search1">
+                                <i class="fa fa-search"/>
+                                <span class="oe_search_found" />
+                            </a>
+                            <div id="popup_search1" class="overlay_search">
+                                <div class="popup_search">
+                                    <!-- <h2>Enter</h2> -->
+                                    <a class="close" href="#">&amp;times</a>
+                                    <div class="content">
+                                        <form class="form-inline" t-att-action="'/shop'" method="get" role="search">
+                                            <t t-set="search_text" t-value="search"/>
+                                                <div class="form-group">
+                                                    <input type="text" name="search" t-att-value="search" class="form-control" placeholder="Search"/>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary oe_search_button" aria-label="Search" title="Search">
+                                                    <i class="fa fa-search">
+                                                            </i>
+                                                </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        
                         <li class="dropdown o_lang_flag list-inline-item text-md-right" t-ignore="true">
                             <a href="#" class="nav-link dropdown-toggle js_lang" data-toggle="dropdown" aria-expanded="true">
                                 <t t-foreach="website.language_ids" t-as="lg">
@@ -42,7 +90,7 @@
                             <a t-attf-href="/web#action=base.action_view_base_language_install&amp;website_id=#{website.id if website else ''}&amp;url_return=#{url_return}"><i class="fa fa-plus-circle"/> Add a language...
                             </a>
                         </li>
-                        <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
+                        <!-- <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
                             <a href="/find_us_on_map"><i style="color:#ff9643; padding-right:3px" class="fa fa-map-marker"/>CLICK &amp;amp; GO SPAS PARTENAIRES</a>
                         </li>
                         <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
@@ -50,18 +98,14 @@
                         </li>
                         <li style="float:left; padding-left:10px" class="list-inline-item text-md-left">
                             <a href="#newsletter"><i style="color:#ff9643; padding-right:3px" class="fa fa-envelope"/> Newsletter </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </ul>
             </div>
-            <div class="img-container-block">
-                <span class="img-container-inline" style="padding-bottom:15px; padding-top:10px;">
-                    <a href="/" class="navbar-brand logo">
-                        <!-- <img t-att-src="'/logo.png?company=%s' % res_company.id" t-att-alt="'Logo of %s' % res_company.name" t-att-title="res_company.name"/> -->
-                        <img src="/web/image/24290/logoThemaeB-W-hdef.jpg" alt="Logo of THÉMAÉ" class="img img-fluid" data-original-title="THÉMAÉ" title="THÉMAÉ" style=""/>
-                    </a>
-                </span>
-            </div>
+            
         </xpath>
     </template>
 </odoo>
+
+
+

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': 'Website Language Flag',
+    'name': 'Website Language Flag New',
     'version': '1.0',
     'category': 'Website',
     'author': 'FreelancerApps',
