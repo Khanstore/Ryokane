@@ -11,7 +11,7 @@
 
                 <div class="form-group field-l_name">
 	                <label for="l_name" class="control-label">Last Name</label>
-	                <input type="text" name="l_name" t-att-value="l_name" id="l_name" class="form-control form-control-sm" required="required" t-att-readonly="'readonly' if only_passwords else None"
+	                <input type="text" name="l_name" t-att-value="l_name" id="l_name" class="form-control form-control-sm"  t-att-readonly="'readonly' if only_passwords else None"
 	                t-att-autofocus="'autofocus' if login and not only_passwords else None" />
             	</div>
 
@@ -34,9 +34,15 @@
             <div class="row">
                 <div class="col-md-4"></div>
     	        <div class="col-md-4">
-                    <div class="panel with-nav-tabs panel-default">
+                    <div class="panel with-nav-tabs panel-default" 
+                    style="
+                    box-shadow: 0 1px 1px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%), 
+                    0 4px 4px rgb(0 0 0 / 11%), 0 6px 8px rgb(0 0 0 / 11%), 0 8px 16px rgb(0 0 0 / 11%);
+                    margin-top: 10%;
+                    ">
+                        
                         <div class="panel-heading">
-                            <ul class="nav nav-tabs pdt-tabs">
+                            <ul class="nav nav-tabs pdt-tabs" style="justify-content: center;">
                                 <li class="nav-item active">
                                     <a class="nav-link active" data-toggle="tab"
                                         href="#login_1">
@@ -86,6 +92,10 @@
 
                                         <div t-attf-class="clearfix oe_login_buttons text-center mb-1 {{'pt-2' if form_small else 'pt-3'}}">
                                             <button type="submit" class="btn btn-primary btn-block">Log in</button>
+                                             <div class="justify-content-between mt-2 d-flex small">
+                                                <!-- <a t-if="signup_enabled" t-attf-href="/web/signup?{{ keep_query() }}">Don't have an account?</a> -->
+                                                <a t-if="reset_password_enabled" t-attf-href="/web/reset_password?{{ keep_query() }}">Reset Password</a>
+                                            </div>
                                             <t t-if="debug">
                                                 <button type="submit" name="redirect" value="/web/become" class="btn btn-link btn-sm btn-block">Log in as superuser</button>
                                             </t>
