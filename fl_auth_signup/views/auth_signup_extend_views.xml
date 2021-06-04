@@ -26,7 +26,7 @@
             
         </template>
 <template id="login" inherit_id="web.login" name="Login" customize_show="True">
-    <xpath expr="t" position="replace">
+    <!-- <xpath expr="t" position="replace"> -->
         
 
 
@@ -135,7 +135,7 @@
         </t>
 
             
-    </xpath>
+    <!-- </xpath> -->
 </template>
 
     </data>
