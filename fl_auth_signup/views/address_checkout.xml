@@ -255,7 +255,7 @@
 
 
 <template id="address_kanban" inherit_id="website_sale.address_kanban" name="Kanban address" customize_show="True">
-<xpath expr="t" position="replace">
+<!-- <xpath expr="t" position="replace"> -->
 
     
             <form action="/shop/checkout" method="POST" class="d-none">
@@ -291,7 +291,7 @@
                     </span>
                 </div>
             </div>
-    </xpath>
+    <!-- </xpath> -->
     </template>
 </data>
 </odoo>
