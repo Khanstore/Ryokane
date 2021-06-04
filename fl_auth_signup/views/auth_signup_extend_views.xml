@@ -25,7 +25,7 @@
             </xpath>
             
         </template>
-<template id="web.login" inherit_id="web.login" name="Login" active="False" customize_show="True">
+<template id="login" inherit_id="web.login" name="Login" customize_show="True">
 
     <ul class="nav nav-tabs">
         <li class="nav-item active">
