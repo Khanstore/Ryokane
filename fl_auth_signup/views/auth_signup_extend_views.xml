@@ -25,6 +25,27 @@
             </xpath>
             
         </template>
+
+        <template id="address_edit_add_fields" inherit_id="website_sale.address" name="Address First Name">
+            <xpath expr="//div[hasclass('div_name')]" position="replace">
+                <div t-attf-class="form-group col-lg-12 div_f_name"> 
+                    <label class="col-form-label" for="name">First Name</label>
+	                <input type="text" name="f_name" required="required" style="font-size:1rem" t-attf-class="form-control div_f_name}" />
+            	</div>
+
+                <div t-attf-class="form-group col-lg-12 div_l_name"> 
+                    <label class="col-form-label" for="name"Last >Name</label>
+	                <input type="text" name="name" style="font-size:1rem" t-attf-class="form-control div_l_name" />
+            	</div>
+
+                <div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
+                    <label class="col-form-label" for="name">Name</label>
+                    <input type="text" name="name" style="font-size:1rem" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}" t-att-value="'name' in checkout and checkout['name']"/>
+                </div>
+            
+            </xpath>
+            
+        </template>
 <template id="login" inherit_id="web.login" name="Login" customize_show="True">
     <xpath expr="t" position="replace">
         
