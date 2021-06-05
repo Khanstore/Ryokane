@@ -27,7 +27,7 @@
         </template>
 
         <template id="address_edit_add_fields" inherit_id="website_sale.address" name="Address First Name">
-            <xpath expr="//div[@='div_name']" position="replace">
+            <xpath expr="//div[@id='div_name']" position="replace">
                 <div t-attf-class="form-group col-lg-12 div_f_name"> 
                     <label class="col-form-label" for="f_name">First Name</label>
 	                <input type="text" name="f_name" style="font-size:1rem" t-attf-class="form-control div_f_name}" />
