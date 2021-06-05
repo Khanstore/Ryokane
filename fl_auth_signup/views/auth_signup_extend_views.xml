@@ -34,7 +34,7 @@
             	</div>
 
                 <div t-attf-class="form-group col-lg-12 div_l_name"> 
-                    <label class="col-form-label" for="name"Last >Name</label>
+                    <label class="col-form-label" for="name">Last >Name</label>
 	                <input type="text" name="name" style="font-size:1rem" t-attf-class="form-control div_l_name" />
             	</div>
 
