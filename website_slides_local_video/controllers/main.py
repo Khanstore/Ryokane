@@ -2,6 +2,7 @@
 
 from odoo import http, _
 from odoo.http import request, route
+from odoo.addons.http_routing.models.ir_http import unslug, slug
 from odoo.addons.website_slides.controllers.main import WebsiteSlides
 from odoo.addons.website.models.ir_http import sitemap_qs2dom
 
