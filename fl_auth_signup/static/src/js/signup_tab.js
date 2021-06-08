@@ -26,18 +26,20 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
     });
 
     $(window).scroll(function() {
-        console.log("inited=====");
+        console.log("inite88888");
         var hT = $('#footer').offset().top,
-
             hH = $('o_footer').outerHeight(),
+
+            hT1 = $('.s_text_block').offset().top,
             hH1 = $('.s_text_block').outerHeight(),
+
             wH = $(window).height(),
             wS = $(this).scrollTop();
         if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
            $('#o_shop_collapse_category').hide();
            console.log("hhhhhh");
         }
-        else if (wS > (hT+hH1-wH) && (hT > wS) && (wS+wH > hT+hH1)){
+        else if (wS > (hT1+hH1-wH) && (hT1 > wS) && (wS+wH > hT1+hH1)){
             $('#o_shop_collapse_category').hide();
             console.log("hhhhhh111");
          }
