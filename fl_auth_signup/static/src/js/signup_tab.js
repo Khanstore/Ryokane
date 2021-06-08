@@ -28,7 +28,7 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
     $(window).scroll(function() {
         console.log("inited=====");
         var hT = $('.o_footer').offset().top,
-            hH = $('.o_footer').outerHeight(),
+            hH = $('o_footer').outerHeight(),
             wH = $(window).height(),
             wS = $(this).scrollTop();
         if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
