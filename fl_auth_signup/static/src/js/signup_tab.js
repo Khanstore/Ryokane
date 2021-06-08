@@ -32,7 +32,10 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
 
             hT1 = $('.s_text_block').offset().top,
             hH1 = $('.s_text_block').outerHeight(),
-
+            
+            hT2 = $('.s_features').offset().top,
+            hH2 = $('.s_features').outerHeight(),
+             
             wH = $(window).height(),
             wS = $(this).scrollTop();
         if (wS > (hT+hH-wH) && (hT > wS) && (wS+wH > hT+hH)){
@@ -40,6 +43,10 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
            console.log("hhhhhh");
         }
         else if (wS > (hT1+hH1-wH) && (hT1 > wS) && (wS+wH > hT1+hH1)){
+            $('#o_shop_collapse_category').hide();
+            console.log("hhhhhh111");
+         }
+         else if (wS > (hT2+hH2-wH) && (hT1 > wS) && (wS+wH > hT2+hH2)){
             $('#o_shop_collapse_category').hide();
             console.log("hhhhhh111");
          }
