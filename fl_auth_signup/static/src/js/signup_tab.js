@@ -27,7 +27,8 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
 
     $(window).scroll(function() {
         console.log("inited=====");
-        var hT = $('.o_footer').offset().top,
+        var hT = $('#footer').offset().top,
+
             hH = $('o_footer').outerHeight(),
             wH = $(window).height(),
             wS = $(this).scrollTop();
@@ -39,5 +40,7 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
            console.log("sssssss");
         }
      });
+
+
 
 });
