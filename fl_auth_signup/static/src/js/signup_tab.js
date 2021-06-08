@@ -46,7 +46,7 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
             $('#o_shop_collapse_category').hide();
             console.log("hhhhhh111");
          }
-         else if (wS > (hT2+hH2-wH) && (hT1 > wS) && (wS+wH > hT2+hH2)){
+         else if (wS > (hT2+hH2-wH) && (hT2 > wS) && (wS+wH > hT2+hH2)){
             $('#o_shop_collapse_category').hide();
             console.log("hhhhhh111");
          }
