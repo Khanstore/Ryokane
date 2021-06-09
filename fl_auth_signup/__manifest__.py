@@ -12,11 +12,12 @@
     'sequence': 1,
     'author': 'Futurelens',
     'website': 'http://thefuturelens.com',
-    'depends': ['auth_signup','web'],
+    'depends': ['auth_signup','web','website'],
     'data': [
         'views/auth_signup_extend_views.xml',
         'views/res_partner_view.xml',
-        'views/assets.xml'
+        'views/assets.xml',
+        # 'views/address_checkout.xml',
     ],
     
     'images': [
