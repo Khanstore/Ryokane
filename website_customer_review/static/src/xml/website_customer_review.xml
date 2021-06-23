@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="rating_stars_static">
+        <t t-set="val_integer" t-value="Math.floor(val)"/>
+        <t t-set="val_decimal" t-value="val - val_integer"/>
+        <t t-set="empty_star" t-value="5 - (val_integer+Math.ceil(val_decimal))"/>
+        <div class="o_website_rating_static">
+            <t t-foreach="_.range(0, val_integer)" t-as="num">
+                <i class="fa fa-star" role="img" aria-label="One star" title="One star"></i>
+            </t>
+            <t t-if="val_decimal">
+                <i class="fa fa-star-half-o" role="img" aria-label="Half a star" title="Half a star"></i>
+            </t>
+            <t t-foreach="_.range(0, empty_star)" t-as="num" role="img" t-attf-aria-label="#{empty_star} on 5" t-attf-title="#{empty_star} on 5">
+                <i class="fa fa-star-o"></i>
+            </t>
+        </div>
+    </t>
+
+    <t t-name="s_customer_review_image_text_template">
+        <t t-foreach="review_ids" t-as="review">
+            <div class="col-12 mt-3">
+                <div class="row border-bottom s_nb_column_fixed">
+                    <div class="col-3 c_img">
+                        <img class="img img-fluid mx-auto" t-att-alt="review.partner_id[1]" t-attf-src="/web/image/res.partner.review/#{review.id}/review_image"/>
+                    </div>
+                    <div class="col-9">
+                        <div class="row s_nb_column_fixed">
+                            <h4 class="mr-3" t-esc="review.partner_id[1]"/>
+                            <div class="customer_review">
+                                <t t-call="rating_stars_static">
+                                    <t t-set="val" t-value="review.review_rating || 0"/>
+                                </t>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <p t-esc="review.review_message"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </t>
+    </t>
+
+    <t t-name="s_customer_review_carousel_template">
+        <div id="reviewCarousel" class="s_quotes_carousel s_carousel_default carousel slide" data-interval="10000">
+            <ol class="carousel-indicators">
+                <t t-foreach="review_ids" t-as="review">
+                    <li data-target="#reviewCarousel" t-att-data-slide-to="review_index" t-att-class="review_index == 0 and 'active' or ''"></li>
+                </t>
+            </ol>
+            <div class="carousel-inner">
+                <t t-foreach="review_ids" t-as="review">
+                    <div t-attf-class="carousel-item bg-200 pb80 #{review_index == 0 and 'active' or ''}" data-name="Slide">
+                        <div class="container">
+                            <div class="row content">
+                                <blockquote class="carousel-content col-lg-6 offset-lg-3">
+                                    <div class="c_img">
+                                        <img t-att-alt="review.partner_id[1]" t-attf-src="/web/image/res.partner.review/#{review.id}/review_image"/>
+                                    </div>
+                                    <div class="text-center mt-15">
+                                        <h4 t-esc="review.partner_id[1]"/>
+                                    </div>
+                                    <div class="text-center mt-15">
+                                        <p t-esc="review.review_message"/>
+                                    </div>
+                                    <div class="text-center mt-15">
+                                        <t t-call="rating_stars_static">
+                                            <t t-set="val" t-value="review.review_rating || 0"/>
+                                        </t>
+                                    </div>
+                                </blockquote>
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </div>
+            <div class="carousel-control-prev" data-target="#reviewCarousel" data-slide="prev" role="img" aria-label="Previous" title="Previous">
+                <span class="carousel-control-prev-icon"/>
+                <span class="sr-only">Previous</span>
+            </div>
+            <div class="carousel-control-next" data-target="#reviewCarousel" data-slide="next" role="img" aria-label="Next" title="Next">
+                <span class="carousel-control-next-icon"/>
+                <span class="sr-only">Next</span>
+            </div>
+        </div>
+    </t>
+
+</templates>

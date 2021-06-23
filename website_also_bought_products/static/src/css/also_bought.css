@@ -1,0 +1,46 @@
+ /* Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
+/* See LICENSE file for full copyright and licensing details. */
+.ab-item{
+
+text-align: center;
+border: solid 1px#E0E0E0;
+margin: 0px 10px;
+}
+.css_quantity .quantity{
+    border-color: #ebebeb;
+}
+.ab-item .css_quantity{
+    max-width: 100%;
+    /*margin-left: 1%;*/
+}
+.ab-item input{
+text-align: center; 
+}
+.ab-item .input-group-addon{
+  border-radius: 0px !important;
+}
+.ab-item .add-to-cart{
+        width: 100%;
+    border-radius: 0px;
+}
+h3.label-primary{
+color: white;
+padding: 4px;
+}
+.group{
+    width: 20%;
+    padding: 6px;
+    border: 1px solid #ebebeb;
+}
+.group-left{
+    margin-left: 5%;
+    border-top-left-radius: 2px !important;;
+    border-bottom-left-radius: 2px !important;;
+    border-right: 0px solid;
+}
+.group-right{
+    margin-right: 5%;
+    border-top-right-radius: 2px !important;;
+    border-bottom-right-radius: 2px !important;;
+    border-left: 0px solid;
+}

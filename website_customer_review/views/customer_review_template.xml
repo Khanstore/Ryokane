@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="ask_customer_review" name="Ask Customer Review">
+        <t t-call="website.layout">
+            <div class="oe_structure js_ask_customer_review" id="review_page">
+                <section class="pt8 pb8">
+                    <div class="container">
+                        <div class="row s_nb_column_fixed">
+                            <div class="col-lg-12 s_title pt16 pb16">
+                                <h1>Customer Review</h1>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="container review_form">
+                    <form method="POST" action="/submit_customer_review" enctype="multipart/form-data">
+                        <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+                        <div class="row">
+                            <div class="col-lg-8">
+                                <div class="row mb16">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="partner_id">Name</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <input type="hidden" name="partner_id" t-att-value="review.partner_id.id" class="form-control" readonly="True"></input>
+                                        <input type="hidden" name="review_token" t-att-value="review.review_token" class="form-control" readonly="True"></input>
+                                        <input type="text" name="partner_name" t-att-value="review.partner_id.display_name" class="form-control" readonly="True"></input>
+                                    </div>
+                                </div>
+                                <input name='review_rating' id="rating" type="hidden" class="form-control" t-att-value="review.review_rating" />
+                                <div class="row mb16">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="review_rating">Rate</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <section class='rating-widget'>
+                                            <div class='rating-stars'>
+                                                <div class="stars enabled">
+                                                    <i class="fa fa-star-o fa-2x" role="img"></i>
+                                                    <i class="fa fa-star-o fa-2x" role="img"></i>
+                                                    <i class="fa fa-star-o fa-2x" role="img"></i>
+                                                    <i class="fa fa-star-o fa-2x" role="img"></i>
+                                                    <i class="fa fa-star-o fa-2x" role="img"></i>
+                                                </div>
+                                          </div>
+                                        </section>
+                                    </div>
+                                </div>
+                                <div class="row mb16">
+                                    <label class="col-lg-3 col-md-4 col-form-label" for="review_message">Message</label>
+                                    <div class="col-lg-7 col-md-8">
+                                        <textarea class="form-control" name="review_message"><t t-esc="review.review_message"/></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4">
+                                <div class="row mb16">
+                                    <div class="oe_partner_image">
+                                        <span t-field="review.review_image" t-options="{'widget': 'image'}"/>
+                                    </div>
+                                </div>
+                                <div class="row mb16">
+                                    <div class="col-lg-7 col-md-8">
+                                        <div class="btn">
+                                            <span>Upload file</span>
+                                            <input type="file" name="review_image_file" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <t t-if="review.review_message or review.review_rating">
+                                    <button type="submit" class="btn btn-primary btn-lg pull-right"><span>Update</span></button>
+                                </t>
+                                <t t-if="not review.review_message and not review.review_rating">
+                                    <button type="button" class="btn btn-light btn-lg pull-right ml32" aria-label="Cancel"><a href="/">Cancel</a></button>
+                                    <button type="submit" class="btn btn-primary btn-lg pull-right">Save</button>
+                                </t>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="thank_you_page" name="Thank You Page">
+        <t t-call="website.layout">
+            <div class="oe_structure" />
+            <div class="container">
+                <div class="pt80 text-center">
+                    <i class="fa fa-check-circle fa-5x text-success"></i>
+                </div>
+                <h1 class="pb80 pt40 text-center">Thank You for Your Valuable Review!</h1>
+            </div>
+        </t>
+    </template>
+
+    <template id="review_page_not_found" name="Review Not Found">
+        <t t-call="website.layout">
+            <div class="oe_structure"/>
+            <div class="container">
+                <h1 class="mt32 text-center">404: Review Page not found!</h1>
+            </div>
+        </t>
+    </template>
+</odoo>

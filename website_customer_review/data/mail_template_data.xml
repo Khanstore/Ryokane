@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="website_customer_review_email_template" model="mail.template">
+        <field name="name">website.customer.review.template</field>
+        <field name="model_id" ref="base.model_res_partner"/>
+        <field name="auto_delete" eval="False"/>
+        <field name="email_from">${ctx['email_from']}</field>
+        <field name="email_to">${ctx['email_to']}</field>
+        <field name="subject">Customer Review</field>
+        <field name="lang">${ctx['lang']}</field>
+        <field name="body_html">
+            <![CDATA[
+                <div>
+                    Hey, ${ctx['partner_name']}
+                    <p>Positive reviews from awesome customers like you help others to feel confident about choosing our service too. Could you take 60 seconds to go to share your happy experiences?
+                    <div style="margin: 16px 0px 16px 0px; align: center;">
+                            <a href="/review/${ctx['review_token']}"
+                                style="background-color: #875A7B; padding: 8px 16px 8px 16px; text-decoration: none; color: #fff; border-radius: 5px; font-size:13px;">
+                                Add/Update Review
+                            </a>
+                        </div>
+                    We will be forever grateful. 
+                    Thank you in advance for helping us out! </p>
+              Regards,<br/>
+              ${ctx['user_name']}
+                </div>
+            ]]>
+        </field>
+    </record>    
+</odoo>
