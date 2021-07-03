@@ -6,7 +6,7 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
         $('#sbmt').prop('disabled', true);
         $('#name').prop('readonly', true);
         $("#accept").click(function() {
-            $("#accept").attr("disabled", !this.checked);
+            $("#sbmt").attr("disabled", !this.checked);
           });
           
         $("#f_name").on("input", function(){
