@@ -3,7 +3,12 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
     "use strict";
     
     $(document).ready(function(){
+        $('#sbmt').prop('disabled', true);
         $('#name').prop('readonly', true);
+        $("#accept").click(function() {
+            $("#accept").attr("disabled", !this.checked);
+          });
+          
         $("#f_name").on("input", function(){
             $("#name").val($("#f_name").val() + " " +$("#l_name").val());
         });
