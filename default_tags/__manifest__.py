@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Default Tags",
+    'name': "Default Tags K",
     'summary': """
        """,
     'author': 'Wafi Chaar',
