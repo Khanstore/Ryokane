@@ -11,7 +11,18 @@
             </xpath>
         </field>
     </record>
-
+    <odoo>
+    <record id="view_stock_scrap_ryo_form_inherit" model="ir.ui.view">
+        <field name="name">view.stock.scrap.form.inherit</field>
+        <field name="model">stock.scrap</field>
+        <field name="inherit_id" ref="stock.stock_scrap_form_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='origin']" position="after">
+                <field name="analytic_tag_ids" widget="many2many_tags"
+                       options="{'color_field': 'color', 'no_create': True}"/>
+            </xpath>
+        </field>
+    </record>
 
 <!--<record id="view_move_line_form1" model="ir.ui.view">-->
             <!--<field name="name">account.move.line.form1</field>-->

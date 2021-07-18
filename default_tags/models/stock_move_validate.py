@@ -2,7 +2,14 @@
 
 from odoo import models, fields, api, _
 from odoo.exceptions import ValidationError
+import logging
+_logger = logging.getLogger(__name__)
 
+class StockJournalEntryScrap(models.Model):
+    _inherit = 'stock.scrap'
+
+    analytic_tag_ids = fields.Many2many('account.analytic.tag',
+                                        string='Analytic Tags')
 
 class StockJournalEntry(models.Model):
     _inherit = 'stock.move'
@@ -56,6 +63,7 @@ class StockJournalEntry(models.Model):
                     for x in set(dimension_tags):
                         if tags.count(x) > 0:
                             occurance = True
+                    _logger.info('Account %s =======================', account)
                     if occurance is False:
                         if account.default_value:
                             tags.append(account.default_value.id)
