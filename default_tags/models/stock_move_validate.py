@@ -66,7 +66,7 @@ class StockJournalEntry(models.Model):
                     for x in set(dimension_tags):
                         if tags.count(x) > 0:
                             occurance = True
-                    _logger.info('Account %s ===========================', account)
+                    _logger.info('Account %s ===========================', move_lines.account_id)
                     if occurance is False:
                         if account.default_value:
                             tags.append(account.default_value.id)
