@@ -56,10 +56,11 @@ class StockJournalEntry(models.Model):
                     if mrp:
                         tags = mrp.mrp_analytic_tags.ids
                     else:
-                        tags = self.analytic_tag_ids.ids
+                        scrap = self.env['stock.scrap'].search([('move_id','=',self.if)])
+                        _logger.info('scrap id %s =====',scrap)
+                        tags = scrap.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
-                    _logger.info('ELSE yes=====')
                 _logger.info('tags %s =====',tags)
                 for account in move_lines.account_id.analytic_dimension_ids:
                     dimension_tags = account.analytic_dimension_id.analytic_tag_ids.ids
