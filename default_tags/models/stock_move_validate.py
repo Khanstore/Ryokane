@@ -56,7 +56,7 @@ class StockJournalEntry(models.Model):
                     if mrp:
                         tags = mrp.mrp_analytic_tags.ids
                     else:
-                        scrap = self.env['stock.scrap'].search([('move_id','=',self.if)])
+                        scrap = self.env['stock.scrap'].search([('move_id','=',self.id)])
                         _logger.info('scrap id %s =====',scrap)
                         tags = scrap.analytic_tag_ids.ids
                 else:
