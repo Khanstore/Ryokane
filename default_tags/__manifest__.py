@@ -1,13 +1,13 @@
 # -*- coding: utf-8 -*-
 {
-    'name': "Default Tags K",
+    'name': "Default Tags",
     'summary': """
        """,
     'author': 'Wafi Chaar',
     'company': 'BAS',
     'category': 'Sale',
     'website': 'https://www.bas.sarl',
-    'version': '12.0.1.0.4',
+    'version': '12.0.1.0.5',
     'depends': ['base', 'purchase', 'sale', 'contacts', 'stock_landed_costs', 'account_asset', 'mrp'],
     'data': [
         'views/order_line.xml',
