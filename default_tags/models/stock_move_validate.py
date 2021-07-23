@@ -5,7 +5,7 @@ from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
- class StockStockScrap(models.Model):
+class StockStockScrap(models.Model):
      _inherit = 'stock.scrap'
 
      analytic_tag_ids = fields.Many2many('account.analytic.tag',
