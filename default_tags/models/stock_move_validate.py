@@ -5,11 +5,11 @@ from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
-# class StockStockScrap(models.Model):
-#     _inherit = 'stock.scrap'
+class StockStockScrap(models.Model):
+     _inherit = 'stock.scrap'
 
-#     analytic_tag_ids = fields.Many2many('account.analytic.tag',
-#                                         string='Analytic Tags')
+     analytic_tag_ids = fields.Many2many('account.analytic.tag',
+                                         string='Analytic Tags')
 
 class StockJournalEntry(models.Model):
     _inherit = 'stock.move'
@@ -52,13 +52,17 @@ class StockJournalEntry(models.Model):
                     tags = self.analytic_tag_ids.ids
                 elif self.scrapped:
                     mrp = self.env['mrp.production'].search([('move_raw_ids', '=', self.id)])
+                    _logger.info('self.scrapped yes=====')
                     if mrp:
                         tags = mrp.mrp_analytic_tags.ids
                     else:
-                        tags = self.analytic_tag_ids.ids
+                        _logger.info('self id %s =====',self)
+                        scrap = self.scrap_ids
+                        _logger.info('scrap id %s =====',scrap)
+                        tags = scrap.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
-
+                _logger.info('tags %s =====',tags)
                 for account in move_lines.account_id.analytic_dimension_ids:
                     dimension_tags = account.analytic_dimension_id.analytic_tag_ids.ids
                     dimension_tags_allowed += dimension_tags
@@ -66,11 +70,11 @@ class StockJournalEntry(models.Model):
                     for x in set(dimension_tags):
                         if tags.count(x) > 0:
                             occurance = True
-                    _logger.info('Account %s ===========================', move_lines.account_id)
                     if occurance is False:
                         if account.default_value:
                             tags.append(account.default_value.id)
                         else:
+                            _logger.info('Account %s ===========================', move_lines.account_id)
                             raise ValidationError(
                                 _("Please choose a valid Tag/Dimension! "))
                 allowed_tag_val = []
