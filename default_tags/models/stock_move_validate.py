@@ -6,10 +6,34 @@ import logging
 _logger = logging.getLogger(__name__)
 
 class StockStockScrap(models.Model):
-     _inherit = 'stock.scrap'
+    _inherit = 'stock.scrap'
 
-     analytic_tag_ids = fields.Many2many('account.analytic.tag',
-                                         string='Analytic Tags')
+    analytic_tag_ids = fields.Many2many('account.analytic.tag',
+                                        string='Analytic Tags')
+
+    def _prepare_move_values(self):
+        self.ensure_one()
+        return {
+            'name': self.name,
+            'origin': self.origin or self.picking_id.name or self.name,
+            'product_id': self.product_id.id,
+            'product_uom': self.product_uom_id.id,
+            'product_uom_qty': self.scrap_qty,
+            'location_id': self.location_id.id,
+            'scrapped': True,
+            'analytic_tag_ids': self.analytic_tag_ids.ids,
+            'location_dest_id': self.scrap_location_id.id,
+            'move_line_ids': [(0, 0, {'product_id': self.product_id.id,
+                                        'product_uom_id': self.product_uom_id.id, 
+                                        'qty_done': self.scrap_qty,
+                                        'location_id': self.location_id.id, 
+                                        'location_dest_id': self.scrap_location_id.id,
+                                        'package_id': self.package_id.id, 
+                                        'owner_id': self.owner_id.id,
+                                        'lot_id': self.lot_id.id, })],
+#             'restrict_partner_id': self.owner_id.id,
+            'picking_id': self.picking_id.id
+        }
 
 class StockJournalEntry(models.Model):
     _inherit = 'stock.move'
@@ -60,8 +84,7 @@ class StockJournalEntry(models.Model):
                         _logger.info('self id %s =====',self)
                         scrap = self.scrap_ids
                         _logger.info('scrap id %s =====',scrap)
-                        for sc in scrap:
-                            tags = sc.analytic_tag_ids.ids
+                        tags = self.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
                     _logger.info('tags %s =====',tags)
