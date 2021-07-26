@@ -63,7 +63,7 @@ class StockJournalEntry(models.Model):
                             tags = sc.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
-                _logger.info('tags %s =====',tags)
+                    _logger.info('tags %s =====',tags)
                 for account in move_lines.account_id.analytic_dimension_ids:
                     dimension_tags = account.analytic_dimension_id.analytic_tag_ids.ids
                     dimension_tags_allowed += dimension_tags
