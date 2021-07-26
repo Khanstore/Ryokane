@@ -43,6 +43,7 @@ class StockJournalEntry(models.Model):
                 'ref': ref,
                 'stock_move_id': self.id,
             })
+            tags = False
             for move_lines in new_account_move.line_ids:
                 dimension_tags_allowed = []
 
