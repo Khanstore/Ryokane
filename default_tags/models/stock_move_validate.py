@@ -70,8 +70,9 @@ class StockJournalEntry(models.Model):
                     dimension_tags_allowed += dimension_tags
                     occurance = False
                     for x in set(dimension_tags):
-                        if tags.count(x) > 0:
-                            occurance = True
+                        if tags:
+                            if tags.count(x) > 0:
+                                occurance = True
                     if occurance is False:
                         if account.default_value:
                             tags.append(account.default_value.id)
