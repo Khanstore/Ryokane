@@ -21,7 +21,7 @@ class StockStockScrap(models.Model):
             'product_uom_qty': self.scrap_qty,
             'location_id': self.location_id.id,
             'scrapped': True,
-            'analytic_tag_ids': self.analytic_tag_ids.ids,
+            'analytic_tag_ids':  [(6, 0, self.analytic_tag_ids.ids)],
             'location_dest_id': self.scrap_location_id.id,
             'move_line_ids': [(0, 0, {'product_id': self.product_id.id,
                                         'product_uom_id': self.product_uom_id.id, 
@@ -87,7 +87,7 @@ class StockJournalEntry(models.Model):
                         tags = self.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
-                    _logger.info('tags %s =====',tags)
+                _logger.info('tags %s =====',tags)
                 for account in move_lines.account_id.analytic_dimension_ids:
                     dimension_tags = account.analytic_dimension_id.analytic_tag_ids.ids
                     dimension_tags_allowed += dimension_tags
