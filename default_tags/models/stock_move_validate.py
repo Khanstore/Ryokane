@@ -59,7 +59,8 @@ class StockJournalEntry(models.Model):
                         _logger.info('self id %s =====',self)
                         scrap = self.scrap_ids
                         _logger.info('scrap id %s =====',scrap)
-                        tags = scrap.analytic_tag_ids.ids
+                        for sc in scrap:
+                            tags = sc.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
                 _logger.info('tags %s =====',tags)
