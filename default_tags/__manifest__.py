@@ -7,7 +7,7 @@
     'company': 'BAS',
     'category': 'Sale',
     'website': 'https://www.bas.sarl',
-    'version': '12.0.1.0.4',
+    'version': '12.0.1.0.7',
     'depends': ['base', 'purchase', 'sale', 'contacts', 'stock_landed_costs', 'account_asset', 'mrp'],
     'data': [
         'views/order_line.xml',

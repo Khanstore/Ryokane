@@ -5,11 +5,35 @@ from odoo.exceptions import ValidationError
 import logging
 _logger = logging.getLogger(__name__)
 
-# class StockJournalEntryScrap(models.Model):
-#     _inherit = 'stock.scrap'
+class StockStockScrap(models.Model):
+    _inherit = 'stock.scrap'
 
-#     analytic_tag_ids = fields.Many2many('account.analytic.tag',
-#                                         string='Analytic Tags')
+    analytic_tag_ids = fields.Many2many('account.analytic.tag',
+                                        string='Analytic Tags')
+
+    def _prepare_move_values(self):
+        self.ensure_one()
+        return {
+            'name': self.name,
+            'origin': self.origin or self.picking_id.name or self.name,
+            'product_id': self.product_id.id,
+            'product_uom': self.product_uom_id.id,
+            'product_uom_qty': self.scrap_qty,
+            'location_id': self.location_id.id,
+            'scrapped': True,
+            'analytic_tag_ids':  [(6, 0, self.analytic_tag_ids.ids)],
+            'location_dest_id': self.scrap_location_id.id,
+            'move_line_ids': [(0, 0, {'product_id': self.product_id.id,
+                                        'product_uom_id': self.product_uom_id.id, 
+                                        'qty_done': self.scrap_qty,
+                                        'location_id': self.location_id.id, 
+                                        'location_dest_id': self.scrap_location_id.id,
+                                        'package_id': self.package_id.id, 
+                                        'owner_id': self.owner_id.id,
+                                        'lot_id': self.lot_id.id, })],
+#             'restrict_partner_id': self.owner_id.id,
+            'picking_id': self.picking_id.id
+        }
 
 class StockJournalEntry(models.Model):
     _inherit = 'stock.move'
@@ -43,6 +67,7 @@ class StockJournalEntry(models.Model):
                 'ref': ref,
                 'stock_move_id': self.id,
             })
+            tags = []
             for move_lines in new_account_move.line_ids:
                 dimension_tags_allowed = []
 
@@ -52,25 +77,30 @@ class StockJournalEntry(models.Model):
                     tags = self.analytic_tag_ids.ids
                 elif self.scrapped:
                     mrp = self.env['mrp.production'].search([('move_raw_ids', '=', self.id)])
+                    _logger.info('self.scrapped yes=====')
                     if mrp:
                         tags = mrp.mrp_analytic_tags.ids
                     else:
+                        _logger.info('self id %s =====',self)
+                        scrap = self.scrap_ids
+                        _logger.info('scrap id %s =====',scrap)
                         tags = self.analytic_tag_ids.ids
                 else:
                     tags = self.analytic_tag_ids.ids
-
+                _logger.info('tags %s =====',tags)
                 for account in move_lines.account_id.analytic_dimension_ids:
                     dimension_tags = account.analytic_dimension_id.analytic_tag_ids.ids
                     dimension_tags_allowed += dimension_tags
                     occurance = False
                     for x in set(dimension_tags):
-                        if tags.count(x) > 0:
-                            occurance = True
-                    _logger.info('Account %s =======================', account)
+                        if tags:
+                            if tags.count(x) > 0:
+                                occurance = True
                     if occurance is False:
                         if account.default_value:
                             tags.append(account.default_value.id)
                         else:
+                            _logger.info('Account %s ===========================', move_lines.account_id)
                             raise ValidationError(
                                 _("Please choose a valid Tag/Dimension! "))
                 allowed_tag_val = []

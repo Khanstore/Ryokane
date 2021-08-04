@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_res_partner_review_tree" model="ir.ui.view">
+        <field name="name">res.partner.review.tree</field>
+        <field name="model">res.partner.review</field>
+        <field name="arch" type="xml">
+            <tree string="Customer Review" create="false" edit="false" class="customer_review_tree">
+                <field name="review_token"/>
+                <field name="partner_id"/>
+                <field name="review_website_id"/>
+                <field name="review_rating" widget="priority" readonly="1"/>
+                <field name="review_message"/>
+                <field name="review_website_publish" attrs="{'invisible': [('review_rating', '=', False), ('review_message', '=', False)]}" widget="boolean_toggle"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_res_partner_review_form" model="ir.ui.view">
+        <field name="name">res.partner.review.from</field>
+        <field name="model">res.partner.review</field>
+        <field name="arch" type="xml">
+            <form string="Customer Review" create="false" edit="false">
+                <sheet string="Customer Review">
+                    <div class="oe_button_box" name="button_box">
+                        <button name="toggle_review_website_publish" type="object"
+                            class="oe_stat_button" icon="fa-check-square"
+                            attrs="{'invisible': [('review_rating', '=', False), ('review_message', '=', False)]}">
+                            <field name="review_website_publish" widget="boolean_button"
+                                    options='{"terminology": {
+                                            "string_true": "Review Published",
+                                            "hover_true": "Unpublish Review",
+                                            "string_false": "Review Unpublish",
+                                            "hover_false": "Publish Review"
+                                        }}'/>
+                        </button>
+                    </div>
+                    <group> 
+                        <field name="partner_id" readonly="1"/>
+                        <field name="review_token" readonly="1"/>
+                        <field name="review_website_id"/>
+                        <field name="review_rating" widget="priority" readonly="1"/>
+                        <field name="review_message"/>
+                        <field name="review_image" widget="image" class="oe_avatar"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="act_res_partner_review" model="ir.actions.act_window">
+        <field name="name">Customer Review</field>
+        <field name="res_model">res.partner.review</field>
+        <field name="view_mode">tree,form</field>
+        <field name="domain">[('partner_id', '=', active_id)]</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Click <i>Ask for Review</i> from Contact view to send email for new review.
+            </p>
+        </field>
+    </record>
+</odoo>

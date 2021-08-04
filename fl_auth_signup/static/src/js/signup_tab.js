@@ -26,7 +26,15 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
         $("#div_l_name").on("input", function(){
             $("#div_name").val($("#div_f_name").val() + " " +$("#div_l_name").val());
         });
-        
+        if (window.navigator.userAgent.indexOf("Mobile") > -1) { 
+            $('.custom_category').hide();
+            console.log("mobl");
+            $('#o_shop_collapse_category').hide();
+
+        }  
+        else{
+            console.log("desk");
+        }
     
     });
 
@@ -59,6 +67,7 @@ odoo.define('fl_auth_signup.signup_signin_tab', function (require) {
            $('#o_shop_collapse_category').show();
            console.log("sssssss");
         }
+        
      });
 
 

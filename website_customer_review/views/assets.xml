@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- Assets, less, js -->
+    <template id="review_assets_backend" inherit_id="website.assets_backend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/website_customer_review/static/src/css/website_customer_review_backend.css"/>
+        </xpath>
+    </template>
+
+    <template id="review_assets_frontend" inherit_id="website.assets_frontend">
+        <xpath expr="." position="inside">
+            <link rel="stylesheet" type="text/scss" href="/website_customer_review/static/src/css/website_customer_review.css"/>
+
+            <script type="text/javascript" src="/website_customer_review/static/src/js/ask_customer_review.js"></script>
+            <script type="text/javascript" src="/website_customer_review/static/src/js/website_customer_review.js"></script>
+        </xpath>
+    </template>
+</odoo>

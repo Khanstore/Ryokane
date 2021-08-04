@@ -1,6 +1,6 @@
 {
     "name": "Sales order production Lots",
-    "version": "12.0.1.0.1",
+    "version": "12.0.1.0.0",
     "author": "BAS",
     "summary": "Display delivered serial numbers in sales order",
     'license': 'AGPL-3',

@@ -1,5 +1,5 @@
 {
-  "name"                 :  "Nb of Products per Column",
+  "name"                 :  "3 Product per Column",
   "summary"              :  "",
   "category"             :  "Website",
   "version"              :  "12.0.1",

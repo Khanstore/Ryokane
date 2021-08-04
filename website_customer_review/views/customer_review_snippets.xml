@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="s_customer_review_image_text" name="Customer Review Image - Text">
+        <section class="s_customer_review pt16 pb16">
+            <div class="container">
+                <h2 class="text-center">Customer Review</h2>
+                <div class="row js_s_customer_review" data-template="s_customer_review_image_text_template"/>
+            </div>
+        </section>
+    </template>
+
+    <template id="s_customer_review_carousel" name="Customer Review Carousel">
+        <section class="s_customer_review pt16 pb16">
+            <div class="container">
+                <h2 class="text-center mb-3">Customer Review</h2>
+                <div class="js_s_customer_review" data-template="s_customer_review_carousel_template"/>
+            </div>
+        </section>
+    </template>
+
+    <template id="website_customer_review" inherit_id="website.snippets" name="Website Customer Review">
+        <xpath expr="//div[@id='snippet_structure']//t[@t-snippet][last()]" position="after">
+            <t t-snippet="website_customer_review.s_customer_review_image_text" t-thumbnail="/website_customer_review/static/src/img/s_customer_review_image_text.png"/>
+            <t t-snippet="website_customer_review.s_customer_review_carousel" t-thumbnail="/website_customer_review/static/src/img/s_customer_review_carousel.png"/>
+        </xpath>
+    </template>
+</odoo>
