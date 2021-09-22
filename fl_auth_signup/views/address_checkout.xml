@@ -27,9 +27,9 @@
                                 <t t-if="mode == ('new', 'billing')">
                                     <h2 class="o_page_header mt8">ORDER AS GUEST
                                         <small> OR </small>
-                                        <a role="button" href="/web/login?redirect=/shop/checkout" class="btn btn-primary" style="margin-top: -11px">Log In/Sign Up</a>
-                                        <!-- <small> OR </small> -->
-                                        <!-- <a role="button" href="/web/signup?redirect=/shop/checkout" class="btn btn-primary" style="margin-top: -11px">Sign Up</a> -->
+                                        <a role="button" href="/web/login?redirect=/shop/checkout" class="btn btn-primary" style="margin-top: -11px">Log In</a>
+                                        <small> OR </small>
+                                        <a role="button" href="/web/signup?redirect=/shop/checkout" class="btn btn-primary" style="margin-top: -11px">Sign Up</a>
                                     </h2>
                                 </t>
                                 <t t-if="mode == ('edit', 'billing')">
