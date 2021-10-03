@@ -7,9 +7,15 @@ from odoo.addons.auth_signup.controllers.main import AuthSignupHome
 from odoo.addons.auth_signup.models.res_users import SignupError
 from odoo.exceptions import UserError
 from odoo.http import request
+from odoo.http import Controller
+from odoo.addons.portal.controllers.portal import CustomerPortal
 
 _logger = logging.getLogger(__name__)
 
+class CustomerPortal(Controller):
+
+    MANDATORY_BILLING_FIELDS = ["f_name","l_name","name", "phone", "email", "street", "city", "country_id"]
+    OPTIONAL_BILLING_FIELDS = ["zipcode", "state_id", "vat", "company_name"]
 
 class AuthSignupHome(AuthSignupHome):
 
