@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+  <data>
+    <record model='ir.ui.view' id='product_slider_tree'>
+      <field name='name'>product.slider.tree</field>
+      <field name='model'>product.slider</field>
+      <field name='arch' type='xml'>
+        <tree string='Product Slider'>
+          <field name="name" />
+        </tree>
+      </field>
+    </record>
+    <record model="ir.ui.view" id="product_slider_form">
+      <field name="name">product.slider.form</field>
+      <field name="model">product.slider</field>
+      <field name="arch" type="xml">
+        <form string="Product Slider">
+          <sheet>
+            <group>
+              <field name="name" />
+              <field name="product_ids" />
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="product_slider_action" model="ir.actions.act_window">
+      <field name="name">Product Slider</field>
+      <field name="res_model">product.slider</field>
+      <field name="view_type">form</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="product_slider_menu" name="Product Slider" parent="website_sale.menu_product_settings" action="product_slider_action" />
+  </data>
+</odoo>
