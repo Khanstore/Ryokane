@@ -75,7 +75,7 @@
                                     <t t-if="lg.code == request.lang">
                                         <img class="img o_flag_icon mr4" t-attf-src="/website/image/res.lang/{{lg.id}}/flag_image"
                                              height="15" width="20" t-att-title="lg.name"/>
-                                        <t t-esc="lg.name.split('/').pop()"/>
+                                        <!-- <t t-esc="lg.name.split('/').pop()"/> -->
                                         <span class="caret"/>
                                     </t>
                                 </t>

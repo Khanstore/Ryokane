@@ -55,12 +55,7 @@
             <div class="row">
                 <div class="col-md-4"></div>
     	        <div class="col-md-4">
-                    <div class="panel with-nav-tabs panel-default" 
-                    style="
-                    
-                    margin-top: 10%;
-                    ">
-                        
+                    <div class="panel with-nav-tabs panel-default" style="margin-top: 10%;">
                         <div class="panel-heading">
                             <ul class="nav nav-tabs pdt-tabs" style="justify-content: center;">
                                 <li class="nav-item active">
@@ -127,7 +122,7 @@
                             </div>
 
                             <div id="signup_1" class="tab-pane">
-                                <form class="oe_signup_form" role="form" method="post" t-if="not message">
+                                <form class="oe_signup_form" role="form" t-attf-action="/web/signup" method="post" t-if="not message">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
                                     <t t-call="auth_signup.fields">
