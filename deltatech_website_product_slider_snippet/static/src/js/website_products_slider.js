@@ -154,7 +154,7 @@ odoo.define("deltatech_website_product_slider_snippet.product_slider", function 
                 },
             });
             console.log("kkkkkkk");
-            this.$("#my_cart").load(location.href + " #my_cart");
+            $("#my_cart").load(location.href + " #my_cart");
             console.log("llllllllll");
 
         },
