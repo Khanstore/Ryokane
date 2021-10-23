@@ -1,13 +1,14 @@
 $(document).ready(function() {
  /* Copyright (c) 2018-Present Webkul Software Pvt. Ltd. (<https://webkul.com/>) */
 /* See LICENSE file for full copyright and licensing details. */
-var sync1 = $("#sync1");
-var sync2 = $(".owl-carousel");
+// var sync1 = $("#sync1");
+// var sync2 = $(".owl-carousel");
       console.log("************cccccc***************");
-      sync2.owlCarousel({
+      $(".owl-carousel").owlCarousel({
         items : 5,
         margin: 20,
         nav: true,
+        loop:true,
         dots: true,
         lazyLoad: true,
         autoplay: true,
