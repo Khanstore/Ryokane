@@ -6,12 +6,12 @@ var sync2 = $("#also-bought-products");
 
       sync2.owlCarousel({
         items : 5,
-        // itemsDesktop      : [1199,10],
-        // itemsDesktopSmall     : [979,10],
-        // itemsTablet       : [768,8],
-        // itemsMobile       : [479,8],
-        // pagination:true,
-        // responsiveRefreshRate : 100,
+        itemsDesktop      : [1199,10],
+        itemsDesktopSmall     : [979,10],
+        itemsTablet       : [768,8],
+        itemsMobile       : [479,8],
+        pagination:true,
+        responsiveRefreshRate : 100,
         margin: 20,
             nav: true,
             dots: true,
