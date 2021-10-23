@@ -19,7 +19,7 @@
   </template>
 
     <template id="product_inherited" inherit_id="website_sale.product" name="Show Also Bought Products" customize_show="True" active="True">
-        <xpath expr="//section[@id='product_full_description']" position="after">
+        <xpath expr="//div[@id='product_full_description']" position="after">
             <div t-if="product.wk_also_bought_products" class="container">
             
                 <div class="card" style="margin-left: 9px; margin-right: 9px;">
