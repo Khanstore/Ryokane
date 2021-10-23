@@ -7,7 +7,7 @@
 <template id="assets_frontend" inherit_id="website.assets_frontend" name="Also Bought">
         <xpath expr="." position="inside">
 
-        <szcript type="text/javascript" src="/website_also_bought_products/static/src/js/owl-carousel/owl.carousel.min.js"></script>
+        <script type="text/javascript" src="/website_also_bought_products/static/src/js/owl-carousel/owl.carousel.min.js"></script>
         <link rel="stylesheet" href="/website_also_bought_products/static/src/js/owl-carousel/owl.carousel.css"/>
         <link rel="stylesheet" href="/website_also_bought_products/static/src/js/owl-carousel/owl.theme.css"/>
         <script type="text/javascript" src="/website_also_bought_products/static/src/js/slider_js.js"></script>
