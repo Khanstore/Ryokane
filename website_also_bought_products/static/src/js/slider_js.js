@@ -13,26 +13,12 @@ var sync2 = $("#also-bought-products");
         pagination:true,
         responsiveRefreshRate : 100,
         margin: 20,
-            nav: true,
-            dots: true,
-            lazyLoad: true,
-            autoplay: true,
-            responsiveClass: true,
-            responsive: {
-                0: {
-                    items: 1,
-                    nav: true
-                },
-                600: {
-                    items: 3,
-                    nav: true
-                },
-                1024: {
-                    items: items,
-                    nav: true
-                }
-            },
-
+        nav: true,
+        dots: true,
+        lazyLoad: true,
+        autoplay: true,
+            
+           
         afterInit : function(el){
           el.find(".owl-item").eq(0).addClass("synced");
         }
