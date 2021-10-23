@@ -32,7 +32,7 @@
                     <t t-foreach="product.wk_also_bought_products" t-as="product">
                         <div class="item">
                             <t t-set="product_href" t-value="'/shop/product/' + slug(product)" />
-                            <t t-set="combination_info" t-value="product._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)" />
+                            <t t-set="combination_info" t-value="product.product_tmpl_id._get_combination_info(only_template=True, add_qty=add_qty or 1, pricelist=pricelist)" />
                             <form action="/shop/cart/update" method="post">
                                 <input type="hidden" name="csrf_token" t-att-value="request.csrf_token()" />
                                 <div itemscope="itemscope" itemtype="http://schema.org/Product">
@@ -56,8 +56,8 @@
                                                 <span itemprop="priceCurrency" style="display:none;" t-esc="website.currency_id.name" />
                                             </b>
                                         </div>
-                                        <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()" />
-                                        <input name="product_id" t-att-value="product_variant_id" type="hidden" />
+                                        <!-- <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()" /> -->
+                                        <input name="product_id" t-att-value="product.id" type="hidden" />
                                         <t t-if="product_variant_id">
                                             <a href="#" role="button" class="btn btn-secondary a-submit" aria-label="Shopping cart" title="Shopping cart">
                                                 <span class="fa fa-shopping-cart" />
