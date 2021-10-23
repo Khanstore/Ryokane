@@ -6,17 +6,39 @@ var sync2 = $("#also-bought-products");
 
       sync2.owlCarousel({
         items : 5,
-        itemsDesktop      : [1199,10],
-        itemsDesktopSmall     : [979,10],
-        itemsTablet       : [768,8],
-        itemsMobile       : [479,8],
-        pagination:true,
-        responsiveRefreshRate : 100,
+        // itemsDesktop      : [1199,10],
+        // itemsDesktopSmall     : [979,10],
+        // itemsTablet       : [768,8],
+        // itemsMobile       : [479,8],
+        // pagination:true,
+        // responsiveRefreshRate : 100,
+        margin: 20,
+            nav: true,
+            dots: true,
+            lazyLoad: true,
+            autoplay: true,
+            responsiveClass: true,
+            responsive: {
+                0: {
+                    items: 1,
+                    nav: true
+                },
+                600: {
+                    items: 3,
+                    nav: true
+                },
+                1024: {
+                    items: items,
+                    nav: true
+                }
+            },
+
         afterInit : function(el){
           el.find(".owl-item").eq(0).addClass("synced");
         }
       });
 
+      
       function syncPosition(el){
         var current = this.currentItem;
         $("#also-bought-products")
