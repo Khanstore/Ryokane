@@ -22,7 +22,7 @@ var sync2 = $("#also-bought-products");
                 nav: true
             },
             1024: {
-                items: items,
+                items: 5,
                 nav: true
             }
         }
