@@ -6,57 +6,67 @@ var sync2 = $("#also-bought-products");
 
       sync2.owlCarousel({
         items : 5,
-        itemsDesktop      : [1199,10],
-        itemsDesktopSmall     : [979,10],
-        itemsTablet       : [768,8],
-        itemsMobile       : [479,8],
-        // pagination:true,
-        // responsiveRefreshRate : 100,
-        loop:true,
-        afterInit : function(el){
-          el.find(".owl-item").eq(0).addClass("synced");
+        margin: 20,
+        nav: true,
+        dots: true,
+        lazyLoad: true,
+        autoplay: true,
+        responsiveClass: true,
+        responsive: {
+            0: {
+                items: 1,
+                nav: true
+            },
+            600: {
+                items: 3,
+                nav: true
+            },
+            1024: {
+                items: items,
+                nav: true
+            }
         }
       });
 
-      function syncPosition(el){
-        var current = this.currentItem;
-        $("#also-bought-products")
-          .find(".owl-item")
-          .removeClass("synced")
-          .eq(current)
-          .addClass("synced")
-        if($("#also-bought-products").data("owlCarousel") !== undefined){
-          center(current)
-        }
+//       function syncPosition(el){
+//         var current = this.currentItem;
+//         $("#also-bought-products")
+//           .find(".owl-item")
+//           .removeClass("synced")
+//           .eq(current)
+//           .addClass("synced")
+//         if($("#also-bought-products").data("owlCarousel") !== undefined){
+//           center(current)
+//         }
 
-      }
+//       }
 
-      function center(number){
-        var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
+//       function center(number){
+//         var sync2visible = sync2.data("owlCarousel").owl.visibleItems;
 
-        var num = number;
-        var found = false;
-        for(var i in sync2visible){
-          if(num === sync2visible[i]){
-            var found = true;
-          }
-        }
+//         var num = number;
+//         var found = false;
+//         for(var i in sync2visible){
+//           if(num === sync2visible[i]){
+//             var found = true;
+//           }
+//         }
 
-        if(found===false){
-          if(num>sync2visible[sync2visible.length-1]){
-            sync2.trigger("owl.goTo", num - sync2visible.length+2)
-          }else{
-            if(num - 1 === -1){
-              num = 0;
-            }
-            sync2.trigger("owl.goTo", num);
-          }
-        } else if(num === sync2visible[sync2visible.length-1]){
-          sync2.trigger("owl.goTo", sync2visible[1])
-        } else if(num === sync2visible[0]){
-          sync2.trigger("owl.goTo", num-1)
-        }
-      }
+//         if(found===false){
+//           if(num>sync2visible[sync2visible.length-1]){
+//             sync2.trigger("owl.goTo", num - sync2visible.length+2)
+//           }else{
+//             if(num - 1 === -1){
+//               num = 0;
+//             }
+//             sync2.trigger("owl.goTo", num);
+//           }
+//         } else if(num === sync2visible[sync2visible.length-1]){
+//           sync2.trigger("owl.goTo", sync2visible[1])
+//         } else if(num === sync2visible[0]){
+//           sync2.trigger("owl.goTo", num-1)
+//         }
+//       }
 
 
 });
