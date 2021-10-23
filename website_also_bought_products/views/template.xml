@@ -58,11 +58,11 @@
                                         </div>
                                         <!-- <t t-set="product_variant_id" t-value="product._get_first_possible_variant_id()" /> -->
                                         <input name="product_id" t-att-value="product.id" type="hidden" />
-                                        <t t-if="product_variant_id">
+                                        <!-- <t t-if="product_variant_id"> -->
                                             <a href="#" role="button" class="btn btn-secondary a-submit" aria-label="Shopping cart" title="Shopping cart">
                                                 <span class="fa fa-shopping-cart" />
                                             </a>
-                                        </t>
+                                        <!-- </t> -->
                                         
                                     </div>
                                 </div>
