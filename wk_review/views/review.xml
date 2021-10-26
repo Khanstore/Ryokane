@@ -149,7 +149,7 @@
 				</div>
 	  	</xpath>
 		</template>
-		<template id="product_review" inherit_id="website_sale.products_item" active="True" customize_show="True" name="Product Review">
+		<template id="product_review" inherit_id="website_sale.products_item" active="False" customize_show="True" name="Product Review">
       <xpath expr="//div[hasclass('product_price')]" position="after" >
       	<div class="tot-rating" data-toggle="popover" style="width:250px;">
       		<input type='hidden'  name="review_id" t-att-value="product.avg_review()" id="wk_rating_star"/>
