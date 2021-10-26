@@ -150,7 +150,7 @@
 	  	</xpath>
 		</template>
 		<template id="product_review" inherit_id="website_sale.products_item" active="True" customize_show="True" name="Product Review">
-      <xpath expr="//section//div[hasclass('product_price')]" position="after" >
+      <xpath expr="//div[hasclass('product_price')]" position="after" >
       	<div class="tot-rating" data-toggle="popover" style="width:250px;">
       		<input type='hidden'  name="review_id" t-att-value="product.avg_review()" id="wk_rating_star"/>
       		<input type='hidden' name="user_reviews" t-att-value="len(product.user_review)"/>
