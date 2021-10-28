@@ -15,7 +15,7 @@ $(document).ready(function() {
       msg = msg.replace('message=','');
     }
     else
-      var msg = "Congratulation!!! your review has been submitted successfully.";
+      var msg = "Merci. Votre avis est bien reçu / Congratulation. Your review has been submitted successfully.";
     $('#submit-msg').after('<div id="msg" class="alert alert-success">\
                             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>\
                             <strong></strong>'+msg+'</div>');
@@ -26,19 +26,19 @@ $(document).ready(function() {
     var ajax = require('web.ajax');
 
     $("#valstar").rating({
-    starCaptions: {1: "Poor", 2: "Ok", 3: "Good", 4: "Very Good", 5: "Excellent"},
+    starCaptions: {1: "Mauvais/Poor", 2: "Ok", 3: "Bien/Good", 4: "Très bien/Very Good", 5: "Excellent"},
     starCaptionClasses: {1: "badge badge-danger", 2: "badge badge-warning", 3: "badge badge-info", 4: "badge badge-primary", 5: "badge badge-success"},
     });
 
     $('#btnsave').on('click',function (e){
       if(form_being_submitted){
-        alert("form is being submitted please wait");
+        alert("Avis en soumission / Form is being submitted please wait");
         $(this).disabled = true;
         e.preventDefault();
       }
       var rate = $("#valstar").val();
       if (rate<=0){
-        $("#errordiv").html("Please add your rating !!!");
+        $("#errordiv").html("Ajouter votre avis svp / Please add your rating");
         e.preventDefault();
         form_being_submitted = false;
         return false
@@ -105,7 +105,7 @@ $(document).ready(function() {
         }
         $(this).popover({
         placement :placement,
-        title:"<center>Average Rating</center>",
+        title:"<center>Avis Moyen/Average Rating</center>",
         trigger : 'focus',
         html : true,
         content :  '<div class="review-popover" style="color: orange;">\
@@ -113,12 +113,12 @@ $(document).ready(function() {
                             <i class="fa fa-star fa-stack-2x"></i>\
                             <p style="font-size:15px;" class="fa-stack-1x fa-stack-text fa-inverse">'+avg_review+'</p>\
                         </div>\
-                        <div>Out Of 5</div>\
+                        <div>/ 5</div>\
                         <div class="progress" style="height:15px; margin-top:1px;  margin-bottom: 1px;">\
                             <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:'+avg_review_per+'%">\
                             </div>\
                         </div>\
-                        <span style="color:#555555;font-size:12px"><u><b>'+user_reviews+'</b>&nbspReviews</u></span>\
+                        <span style="color:#555555;font-size:12px"><u><b>'+user_reviews+'</b>&nbspAvis/Reviews</u></span>\
                     </div>'
         });
         $(this).popover('show');

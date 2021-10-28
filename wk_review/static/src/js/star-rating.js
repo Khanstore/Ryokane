@@ -532,6 +532,25 @@
         clearCaption: 'Not Rated'
     };
 
+
+    $.fn.ratingLocales.fr = {
+        defaultCaption: '{rating} Étoiles',
+        starCaptions: {
+            0.5: 'Demi étoile',
+            1: 'Une étoile',
+            1.5: 'Une étoile et demi',
+            2: 'Deux étoiles',
+            2.5: 'Deux étoiles et demi',
+            3: 'Trois étoiles',
+            3.5: 'Trois étoiles et demi',
+            4: 'Quatre étoiles',
+            4.5: 'Quatres étoiles et demi',
+            5: 'Cinq étoiles'
+        },
+        clearButtonTitle: 'Effacer',
+        clearCaption: 'Pas d'avis'
+    };
+
     $.extend($.fn.rating.defaults, $.fn.ratingLocales.en);
 
     $.fn.rating.Constructor = Rating;
