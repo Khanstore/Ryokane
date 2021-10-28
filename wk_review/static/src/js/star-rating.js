@@ -548,7 +548,7 @@
             5: 'Cinq étoiles'
         },
         clearButtonTitle: 'Effacer',
-        clearCaption: 'Pas d'avis'
+        clearCaption: '0 avis'
     };
 
     $.extend($.fn.rating.defaults, $.fn.ratingLocales.en);
