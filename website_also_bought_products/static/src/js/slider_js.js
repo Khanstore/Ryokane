@@ -5,13 +5,12 @@ $(document).ready(function() {
 // var sync2 = $(".owl-carousel");
       console.log("************cccccc***************");
       $(".owl-carousel").owlCarousel({
-        items : 5,
-        margin: 20,
-        nav: true,
+        // items : 5,
         loop:true,
-        dots: true,
-        lazyLoad: true,
-        autoplay: true,
+        margin: 10,
+        // dots: true,
+        // lazyLoad: true,
+        // autoplay: true,
         responsiveClass: true,
         responsive: {
             0: {
@@ -20,14 +19,16 @@ $(document).ready(function() {
             },
             600: {
                 items: 3,
-                nav: true
+                nav: false
             },
-            1024: {
+            1000: {
                 items: 5,
-                nav: true
+                nav:true,
+                loop:false
             }
         }
       });
+      
 
 //       function syncPosition(el){
 //         var current = this.currentItem;
