@@ -13,6 +13,7 @@ $(window).on('load',function() {
         // lazyLoad: true,
         // autoplay: true,
         responsiveClass: true,
+        responsiveBaseElement: 'body',
         responsive: {
             0: {
                 items: 1,
