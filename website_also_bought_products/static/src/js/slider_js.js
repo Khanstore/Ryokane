@@ -3,6 +3,7 @@ $(document).ready(function() {
 /* See LICENSE file for full copyright and licensing details. */
 // var sync1 = $("#sync1");
 // var sync2 = $(".owl-carousel");
+$(window).on('load',function() {
       console.log("************cccccc***************");
       $(".owl-carousel").owlCarousel({
         // items : 5,
@@ -29,7 +30,7 @@ $(document).ready(function() {
         }
       });
       
-
+    });
 //       function syncPosition(el){
 //         var current = this.currentItem;
 //         $("#also-bought-products")
