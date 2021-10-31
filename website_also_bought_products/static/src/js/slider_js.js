@@ -4,7 +4,7 @@ $(document).ready(function() {
 // var sync1 = $("#sync1");
 // var sync2 = $(".owl-carousel");
 $(window).on('load',function() {
-      console.log("************cccccc***************");
+      console.log("************uuuuuuuuuu***************");
       $(".owl-carousel").owlCarousel({
         // items : 5,
         loop:true,
