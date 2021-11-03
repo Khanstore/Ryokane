@@ -57,7 +57,7 @@
 				</t>
 			</xpath>
 
-			<xpath expr="//div[@id='also-bought-products']" position="after">
+			<xpath expr="//div[@id='product_full_description']" position="after">
 				<section class="container" >
 	        <div class="row" id="reviewId">
 	          <div class="col-md-12 col-xs-12 col-sm-12 box-review">
