@@ -87,6 +87,10 @@
                 </t>
             </div>
         </t>
+         <script>
+        		$(".for-js-rating").rating();
+			    $("abbr.timeago").timeago();
+        	</script>
     </template>
     <!-- No product here, template -->
     <template id="no_products">
@@ -164,9 +168,6 @@
                 </div>
             </div>
         </xpath>
-        <script>
-        		$(".for-js-rating").rating();
-			    $("abbr.timeago").timeago();
-        	</script>
+       
     </template>
 </odoo>
