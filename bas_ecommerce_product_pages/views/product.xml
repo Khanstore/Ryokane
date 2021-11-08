@@ -4,7 +4,7 @@
 <!-- License URL : https://store.webkul.com/license.html/ -->
 <odoo>
 	<data>
-		<template id="product_page" inherit_id="website_sale.product" customize_show="True" active="True" name="Product">
+		<template id="product_page" inherit_id="website_sale.product" customize_show="True" active="True" name="Product" priority="1">
 			<xpath expr="//." position="replace">
     <t t-set="first_possible_combination" t-value="product._get_first_possible_combination()"/>
     <t t-set="combination_info" t-value="product._get_combination_info(first_possible_combination, add_qty=add_qty or 1, pricelist=pricelist)"/>
