@@ -162,7 +162,6 @@
             </section>
             <div itemprop="description" t-field="product.website_description" class="oe_structure mt16" id="product_full_description"/></div>
     </t>
-</t>
 			</xpath>
 		</template>
 	</data>
