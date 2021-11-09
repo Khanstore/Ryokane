@@ -109,7 +109,7 @@ class ProductTemplate(models.Model):
         review_pool = self.env["user.review"]
         if review_id:
             review_obj = review_pool.browse(review_id)
-            iso_format = review_obj.create_date.strftime('%Y-%m-%dT%H:%M:%SZ')
+            iso_format = review_obj.create_date.strftime('%d-%b-%Y')
             return iso_format
 
     @api.multi
