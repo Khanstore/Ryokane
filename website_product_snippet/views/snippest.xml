@@ -52,7 +52,7 @@
                                             <span class="fa fa-shopping-cart" />
                                         </a>
                                     </t>
-                                       <!--<div class="tot-rating" data-toggle="popover" style="width:250px;">-->
+                                       <div class="tot-rating" data-toggle="popover" style="width:250px;">
                                             <input type='hidden'  name="review_id" t-att-value="product.avg_review()" id="wk_rating_star"/>
                                             <input type='hidden' name="user_reviews" t-att-value="len(product.user_review)"/>
                                             <t t-set="user_reviews" t-value="len(product.user_review)"/>
@@ -61,7 +61,7 @@
                                                         <input id="input-5a" class="rating form-control d-none"  t-attf-value="#{product.avg_review()}" data-show-clear="false" data-show-caption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" data-size="xxs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>
                                                         <span>(<t t-esc="user_reviews"/> Ratings)</span>
                                                     </t>
-                                        <!--</div>-->
+                                        </div>
 
                                         <!--
                                         <t t-set="in_wish" t-value="product._is_in_wishlist()" />
