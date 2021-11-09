@@ -30,9 +30,9 @@
                                         <span t-field="product.image" t-options="{'widget': 'image', 'resize': None if product_image_big else '300x300'}" />
                                     </a>
                                 </div>
-                                <div class="text-center" style="color:black;">
+                                <div class="text-center">
                                     <h4>
-                                        <a itemprop="name" t-att-href="product_href" t-att-content="product.x_studio_website_label" t-field="product.x_studio_website_label" />
+                                        <a style="color:black;" itemprop="name" t-att-href="product_href" t-att-content="product.x_studio_website_label" t-field="product.x_studio_website_label" />
                                     </h4>
                                     <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
                                         <b>
