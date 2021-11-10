@@ -60,8 +60,16 @@
                                                     <t t-if="val != 0" >
                                                         <input id="input-5a" class="rating form-control d-none"  t-attf-value="#{product.avg_review()}" data-show-clear="false" data-show-caption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" data-size="xxs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>
                                                         <span>(<t t-esc="user_reviews"/> Ratings</span>
-                                                        <t t-if="product.avg_review() &lt; 1"/><span class="fa fa-star"/>
-                                                        <t t-if="product.avg_review() &gt; 1"/><span class="fa fa-star"/><span class="fa fa-star"/>
+                                                        <t t-if="product.avg_review() &lt; 1"><span class="fa fa-star-half-o"/></t>
+                                                        <t t-elif="product.avg_review()== 1"><span class="fa fa-star"/></t>
+                                                        <t t-elif="product.avg_review() &lt; 2"><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
+                                                        <t t-elif="product.avg_review()== 2"><span class="fa fa-star"/><span class="fa fa-star"/></t>
+                                                        <t t-elif="product.avg_review() &lt; 3"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
+                                                        <t t-elif="product.avg_review()== 3"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
+                                                        <t t-elif="product.avg_review() &lt; 4"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
+                                                        <t t-elif="product.avg_review()== 4"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
+                                                        <t t-elif="product.avg_review() &lt; 5"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
+                                                        <t t-elif="product.avg_review()== 5"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
                                                     </t>
                                         </div>
 
