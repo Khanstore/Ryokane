@@ -70,7 +70,7 @@
                                                         <t t-elif="product.avg_review()== 4"><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/></t>
                                                         <t t-elif="product.avg_review() &lt; 5"><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star-half-o" style="color:#230800;"/></t>
                                                         <t t-elif="product.avg_review()== 5"><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/><span class="fa fa-star" style="color:#230800;"/></t>
-                                                        <span><br></span>
+                                                        <span><br/></span>
                                                         <span>(<t t-esc="user_reviews"/> Ratings)</span>
                                                     </t>
                                         </div>
