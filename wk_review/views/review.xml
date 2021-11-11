@@ -66,8 +66,8 @@
 	              	<t t-set="total_reviews" t-value="product.fetch_active_review(product.id)"/>
 									<div class="row d-block" style="width:100%">
 										<div class="col-md-12" style="padding:0px">
-											<span class="col-md-2 add-all-review"><u>All Reviews</u></span>
-										<span class="col-md-1" style="background-color: #66bb6a;height: auto;width: auto;border-radius: 50px;margin-top: auto;padding-bottom: 3px;padding-top: 3px;">
+											<h2 class="col-md-2"><u>All Reviews</u></h2>
+										<span class="col-md-1" style="background-color: #ea9c0a;height: auto;width: auto;border-radius: 50px;margin-top: auto;padding-bottom: 3px;padding-top: 3px;">
 											<span id="viewed"><t t-esc="len(product.fetch_active_review2(product.id,0,product.get_limit()))"/></span> /
 											<span id="total_product_reviews"><t t-esc="len(total_reviews)"/></span>
 										</span>
@@ -97,7 +97,7 @@
 										<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
 
 										<input type="hidden" id="product_tmp_id" name="product_tmp_id" t-attf-value="#{product_tmp_id or product.id}" />
-										<span id="submit-msg" class="add-all-review"><p style="font-family: 'Open Sans 600'; font-size:24px; color:#000000;"><u>Add Your Review</u></p></span>
+										<span id="submit-msg" class="add-all-review"><h2><u>Add Your Review</u></h2></span>
 										<div id="errordiv" class="input-text" style="color:red;font-size:1.5em"></div>
 
 										<div id="star_div" style="color:#FFA000;">
@@ -105,19 +105,19 @@
 											<input required="required" type="hidden" name="stars" id="valstar" data-show-clear="false" class="rating form-control hide" value="" data-min="0" data-max="5" data-step="1" data-size="sm" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>
 										</div>
 										<div  class="input-text">
-											<p class="textbox-label">Your Name<sup><i class="fa fa-asterisk fa-icon-smaller" style="color:red"></i></sup></p>
+											<p class="textbox-label">Your Name</p>
 										    <input id="contact_name" type="text" class="form-control" name="contact_name" t-attf-value="#{contact_name or user_id.name}" required="required" placeholder="enter your nick name"/>
 										</div>
 										<div class="input-text">
-											<p class="textbox-label">Your Email<sup><i class="fa fa-asterisk fa-icon-smaller" style="color:red"></i></sup></p>
+											<p class="textbox-label">Your Email</p>
 										    <input id="email" type="email" class="form-control" name="email" t-attf-value="#{email or user_id.email}" required="required" placeholder="enter your email"/>
 										</div>
 										<div class="input-text">
-											<p class="textbox-label">Write Review Title<sup><i class="fa fa-asterisk fa-icon-smaller" style="color:red"></i></sup></p>
+											<p class="textbox-label">Write Review Title</p>
 										    <input id="title" type="text" class="form-control" name="title" t-attf-value="#{title or ''}" maxlength="200" required="required" placeholder="Write review title"/>
 										</div>
 										<div class="input-text">
-											<p class="textbox-label">Write Your Review<sup><i class="fa fa-asterisk fa-icon-smaller" style="color:red"></i></sup></p>
+											<p class="textbox-label">Write Your Review</p>
 											<textarea id="summary" rows="3" name="review" class="form-control" required="required" placeholder="Write Your review..."/>
 										</div>
 										<button id="btnsave" class="btn btn-primary btn-lg add-button-label">Add Review</button>
