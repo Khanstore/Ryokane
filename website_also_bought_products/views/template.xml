@@ -43,7 +43,7 @@
                                     </div>
                                     <div class="text-center">
                                         <h4>
-                                            <a itemprop="name" t-att-href="product_href" t-att-content="product.name" t-field="product.name" />
+                                            <a itemprop="name" t-att-href="product_href" t-att-content="product.x_studio_website_label" t-field="product.x_studio_website_label" />
                                         </h4>
                                         <div itemprop="offers" itemscope="itemscope" itemtype="http://schema.org/Offer" class="product_price">
                                             <b>
