@@ -16,8 +16,7 @@
 		</template>
 
 		<template id="wk_review" inherit_id="website_sale.product" customize_show="True" active="True" name="Product Review" priority="20">
-			<!--<xpath expr="//a[@id='add_to_cart']" position="before">-->
-                        <xpath expr="//span[@t-field='product.x_studio_product_size']" position="after">
+			<xpath expr="//a[@id='add_to_cart']" position="before">
 			 	<t t-set="val" t-value="product.avg_review()"/>
 			 	<t t-if="val != 0" >
 			 		<hr class="mb32"/>
@@ -43,9 +42,9 @@
 						<div class= "RootElement">
 							<a href="#reviewId">
 								<t t-if="product.user_review">
-	            		<span class="Count NonZeroCount ">
+	            		<span class="Count NonZeroCount" style="color:black;">
 	              		 <t t-if="len(product.fetch_active_review(product.id)) > 0" >
-	              		 	<span class="Number" style="color:black;">
+	              		 	<span class="Number">
 	              		 		<t t-esc="len(product.fetch_active_review(product.id))"/>
 	              		 	</span>
 	              		 	<span> Review(s)</span>
