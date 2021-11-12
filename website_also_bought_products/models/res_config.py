@@ -23,7 +23,7 @@ class AlsoBoughtProductsConf(models.TransientModel):
 	
 	header = fields.Char(
 		string="Header Message",
-		required=True, translate=True
+		required=True,
 	)
 
 

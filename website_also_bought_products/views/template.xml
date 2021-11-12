@@ -24,7 +24,7 @@
             
                 <div class="card" style="margin-left: 9px; margin-right: 9px;">
                     <div class="card-header" style="text-align: center;">
-                        CUSTOMERS WHO BOUGHT THIS ITEM ALSO BOUGHT 
+                        <t t-esc="request.env['ir.default'].sudo().get('also.bought.products.conf', 'header')"/>
                     </div>
                 </div><br></br>
                 <div id="also-bought-products" class="owl-carousel">
