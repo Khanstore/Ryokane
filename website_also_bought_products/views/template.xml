@@ -31,7 +31,6 @@
                 <!--<div id="also-bought-products" class="owl-carousel owl-theme owl-loaded loading_container">-->
                 <div id="also-bought-products" class="s_product_list" >
                  <div class="container-fluid product-list">
-                   <div class="row">
                     <t t-foreach="product.wk_also_bought_products" t-as="product">
                         <div class="item">
                             <t t-set="product_href" t-value="'/shop/product/' + slug(product)" />
@@ -73,7 +72,6 @@
                         </div>
                     </t>
                   </div>
-                 </div>
                 </div>
 
                     <!-- <div t-foreach="product.wk_also_bought_products" t-as="obj" class="item ab-item">
