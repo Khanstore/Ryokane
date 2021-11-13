@@ -68,15 +68,6 @@
                             <!-- </form> -->
                         </div>
                     </t>
-                    <div class="owl-nav">
-                        <div class="owl-prev">prev</div>
-                        <div class="owl-next">next</div>
-                    </div>
-                    <div class="owl-dots">
-                        <div class="owl-dot active"><span></span></div>
-                        <div class="owl-dot"><span></span></div>
-                        <div class="owl-dot"><span></span></div>
-                    </div>
                 </div>
 
                     <!-- <div t-foreach="product.wk_also_bought_products" t-as="obj" class="item ab-item">
