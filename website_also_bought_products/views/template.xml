@@ -20,16 +20,16 @@
 
     <template id="product_inherited" inherit_id="website_sale.product" name="Show Also Bought Products" customize_show="True" active="True">
         <xpath expr="//div[@id='product_full_description']" position="after">
-            <div t-if="product.wk_also_bought_products" class="container-fluid">
+            <div t-if="product.wk_also_bought_products" class="container">
             
                 <div class="card" style="margin-left: 9px; margin-right: 9px;">
                     <div class="card-header" style="text-align: center;">
-                        CUSTOMERS WHO BOUGHT THIS ITEM ALSO BOUGHT 
+                        CUSTOMERS WHO BOUGHT THIS ITEM ALSO BOUGHT THESE
                     </div>
                 </div><br></br>
                 <!-- <div id="also-bought-products" class="owl-carousel"> -->
-                <!--<div id="also-bought-products" class="owl-carousel owl-theme owl-loaded loading_container">-->
-                <div id="also-bought-products" class="s_product_list" >
+                <div id="also-bought-products" class="owl-carousel owl-theme owl-loaded loading_container owl-controls clickable" style="display: true;">
+                <!--<div id="also-bought-products" class="s_product_list" >-->
                     <t t-foreach="product.wk_also_bought_products" t-as="product">
                         <div class="item">
                             <t t-set="product_href" t-value="'/shop/product/' + slug(product)" />
@@ -70,6 +70,15 @@
                             <!-- </form> -->
                         </div>
                     </t>
+                    <div class="owl-nav">
+                        <div class="owl-prev">prev</div>
+                        <div class="owl-next">next</div>
+                    </div>
+                    <div class="owl-dots">
+                        <div class="owl-dot active"><span></span></div>
+                        <div class="owl-dot"><span></span></div>
+                        <div class="owl-dot"><span></span></div>
+                    </div>
                 </div>
 
                     <!-- <div t-foreach="product.wk_also_bought_products" t-as="obj" class="item ab-item">
