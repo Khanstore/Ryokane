@@ -24,12 +24,10 @@
             
                 <div class="card" style="margin-left: 9px; margin-right: 9px;">
                     <div class="card-header" style="text-align: center;">
-                        CUSTOMERS WHO BOUGHT THIS ITEM ALSO BOUGHT THESE
+                        CUSTOMERS WHO BOUGHT THIS ITEM ALSO BOUGHT
                     </div>
                 </div><br></br>
-                <!-- <div id="also-bought-products" class="owl-carousel"> -->
-                <div id="also-bought-products" class="owl-carousel owl-theme owl-loaded loading_container owl-controls clickable" style="display: true;">
-                <!--<div id="also-bought-products" class="s_product_list" >-->
+                <div id="also-bought-products" class="owl-carousel">
                     <t t-foreach="product.wk_also_bought_products" t-as="product">
                         <div class="item">
                             <t t-set="product_href" t-value="'/shop/product/' + slug(product)" />
