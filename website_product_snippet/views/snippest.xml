@@ -63,7 +63,7 @@
                                                         <span style="color:black;">Ratings: <t t-esc="product.avg_review()"/> / 5.0 </span>
                                                         <t t-foreach="range(5)" t-as="i">
                                                            <t t-if="product.avg_review() &gt;= i"><span class="fa fa-star" style="color:#FF9643;"/></t>
-                                                           <t t-elif="product.avg_review() &lt; i &and; product.avg_review() &gt; i-1"><span class="fa fa-star-half-o"/></t>
+                                                           <t t-elif="product.avg_review() &lt; i and product.avg_review() &gt; i-1"><span class="fa fa-star-half-o"/></t>
                                                            <t t-else=""><span class="fa fa-star-o"/></t>
                                                         </t>
                                                         <span><br/></span>
