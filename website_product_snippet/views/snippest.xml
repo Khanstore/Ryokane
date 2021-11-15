@@ -60,7 +60,7 @@
                                                     <t t-if="val != 0" >
                                                         <!--<input id="input-5a" class="rating form-control d-none"  t-attf-value="#{product.avg_review()}" data-show-clear="false" data-show-caption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" data-size="xxs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>-->
 							<span class="text-center;" style="color:#FF9643;text-align:center;">
-                                                        <t t-foreach="range(4)" t-as="i">
+                                                        <t t-foreach="range(5)" t-as="i">
                                                            <t t-if="product.avg_review() &gt;= i+1"><span class="fa fa-star" style="color:#FF9643;"/></t>
                                                            <t t-elif="product.avg_review() &lt; i+1 and product.avg_review() &gt; i"><span class="fa fa-star-half-o"/></t>
                                                            <t t-else=""><span class="fa fa-star-o"/></t>
