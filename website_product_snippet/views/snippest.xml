@@ -58,25 +58,17 @@
                                             <t t-set="user_reviews" t-value="len(product.user_review)"/>
                                             <t t-set="val" t-value="product.avg_review()"/>
                                                     <t t-if="val != 0" >
-                                                        <input id="input-5a" class="rating form-control d-none"  t-attf-value="#{product.avg_review()}" data-show-clear="false" data-show-caption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" data-size="xxs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>
+                                                        <!--<input id="input-5a" class="rating form-control d-none"  t-attf-value="#{product.avg_review()}" data-show-clear="false" data-show-caption="false" data-min="0" data-max="5" data-step="0.1" data-readonly="true" data-size="xxs" data-symbol="&#xf005;" data-glyphicon="false" data-rating-class="rating-fa"/>-->
 							<span class="text-center;" style="color:#FF9643;text-align:center;">
                                                         <span style="color:black;">Ratings: <t t-esc="product.avg_review()"/> / 5.0 </span>
-                                                        <t t-if="product.avg_review() &lt; 1"><span class="fa fa-star-half-o"/></t>
-                                                        <t t-elif="product.avg_review()== 1"><span class="fa fa-star" style="color:#FF9643;"/></t>
-                                                        <t t-elif="product.avg_review() &lt; 2"><span class="fa fa-star" style="color:#FF9643;"/><span class="fa fa-star-half-o"/></t>
-                                                        <t t-elif="product.avg_review()== 2"><span class="fa fa-star"/><span class="fa fa-star"/></t>
-                                                        <t t-elif="product.avg_review() &lt; 3"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
-                                                        <t t-elif="product.avg_review()== 3"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
-                                                        <t t-elif="product.avg_review() &lt; 4"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
-                                                        <t t-elif="product.avg_review()== 4"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
-                                                        <t t-elif="product.avg_review() &lt; 5"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star-half-o"/></t>
-                                                        <t t-elif="product.avg_review()== 5"><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/><span class="fa fa-star"/></t>
+                                                        <t t-foreach="range(5)" t-as="i">
+                                                           <t t-if="product.avg_review() &geq; i"><span class="fa fa-star" style="color:#FF9643;"/></t>
+                                                           <t t-elif="product.avg_review() &lt; i &and; product.avg_review() &gt; i-1"><span class="fa fa-star-half-o"/></t>
+                                                           <t t-else=""><span class="fa fa-star-o"/></t>
+                                                        </t>
                                                         <span><br/></span>
-                                                        <span style="color:black;">(<t t-esc="user_reviews"/> Ratings)</span>
-                                                        </span>
                                                     </t>
                                         </div>
-
                                         <!--
                                         <t t-set="in_wish" t-value="product._is_in_wishlist()" />
                                         <button t-if="product_variant_id" type="button" role="button" class="btn btn-secondary o_add_wishlist" t-att-disabled='in_wish or None' title="Add to Wishlist" t-att-data-product-template-id="product.id" t-att-data-product-product-id="product_variant_id" data-action="o_wishlist"><span class="fa fa-heart" role="img" aria-label="Add to wishlist"></span></button>
